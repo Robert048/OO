@@ -8,69 +8,10 @@ namespace Bibliotheek
 {
     class Leden
     {
-        public int lidId
-        {
-            get
-            {
-                return lidId;
-            }
-
-            set
-            {
-                lidId = value;
-            }
-        }
-
-        public string naam
-        {
-            get
-            {
-                return naam;
-            }
-
-            set
-            {
-                naam = value;
-            }
-        }
-
-        public string adres
-        {
-            get
-            {
-                return adres;
-            }
-
-            set
-            {
-                adres = value;
-            }
-        }
-
-        public string email
-        {
-            get
-            {
-                return email;
-            }
-
-            set
-            {
-                email = value; 
-            }
-        }
-
-        public int aantalArtikelen
-        {
-            get
-            {
-                return aantalArtikelen;
-            }
-
-            set
-            {
-                aantalArtikelen = value;
-            }
-        }
+        public int lidId { get; set; }
+        public string naam { get; set; }
+        public string adres { get; set; }
+        public string email { get; set; }
+        public int aantalArtikelen { get; set; }
     }
 }
