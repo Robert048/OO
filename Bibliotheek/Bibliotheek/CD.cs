@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    enum CDTypes
+    enum CDType
     {
         POP,
         CLASSIC
@@ -14,5 +14,15 @@ namespace Bibliotheek
 
     class CD : Article
     {
+        public const float LOAN_COSTS = 0.00F;
+        public int Age { get; set; }
+
+        public CDType CDType { get; private set; }
+
+        public CD(CDType cdType, int ArticleID, string Title)
+            : base(ArticleID, Title)
+        {
+            CDType = cdType;
+        }
     }
 }

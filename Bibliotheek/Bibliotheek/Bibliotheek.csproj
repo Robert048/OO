@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Artikel.cs" />
-    <Compile Include="Boek.cs" />
+    <Compile Include="Article.cs" />
+    <Compile Include="Book.cs" />
     <Compile Include="Boete.cs" />
     <Compile Include="CD.cs" />
     <Compile Include="DVD.cs" />
