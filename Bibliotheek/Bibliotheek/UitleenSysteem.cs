@@ -29,7 +29,9 @@ namespace Bibliotheek
             articles = new List<Article>();
             members = new List<Leden>();
 
-            getArticle("");
+            Article newArticle = new Book(BookType.ROMAN, 1, "test");
+            articles.Add(newArticle);
+            getArticle("test");
         }
 
         /// <summary>
@@ -41,10 +43,10 @@ namespace Bibliotheek
             return false;
         }
 
-        private void getArticle(string title)
+        private Article getArticle(string title)
         {
-            Console.WriteLine("\nFind: Part where name contains \"seat\": {0}",
-            articles.Find(x => x.Title.Contains(title)));
+            Article article = articles.Find(x => x.Title.Contains(title));
+            return article;
         }
 
         private void addArticle(string type, int articleID, string title)
