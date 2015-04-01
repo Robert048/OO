@@ -8,6 +8,10 @@ namespace Bibliotheek
 {
     class Inkomen
     {
-       
+        public int totaalReserveringKosten { get; set; }
+        public int totaalBoeteKosten { get; set; }
+        public int totaalCdInkomsten { get; set; }
+        public int totaalDvdInkomsten { get; set; }
+
     }
 }
