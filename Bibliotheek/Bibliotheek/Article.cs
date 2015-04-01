@@ -8,14 +8,14 @@ namespace Bibliotheek
 {
     abstract class Article
     {
-        public const float RESERVATION_COSTS = 0.90f;
-        public DateTime BroughtBackDate { get; set; }
+        public const float RESERVATION_COSTS = 0.30f;
+        public DateTime ArticleReturnDate { get; set; }
         public string Title { get; set; }
         public int ArticleID { get; set; }
         public int LoanStatus { get; set; }
-        public List<int> ReservationsList { get; set; }
-        public int LoanedHours { get; set; }
-        public int LoanedDate { get; set; }
+        public Dictionary<int, DateTime> ReservationsList { get; set; }
+        public int TimesLoaned { get; set; }
+        public int LoanedPeriode { get; set; }
         
         public Article(int ArticleID, string Title)
         {
