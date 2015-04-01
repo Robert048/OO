@@ -28,7 +28,8 @@ namespace Bibliotheek
             InitializeComponent();
             articles = new List<Article>();
             members = new List<Leden>();
-            
+
+            getArticle("");
         }
 
         /// <summary>
@@ -40,32 +41,32 @@ namespace Bibliotheek
             return false;
         }
 
-        private void getArticle()
+        private void getArticle(string title)
         {
-            
+            Console.WriteLine("\nFind: Part where name contains \"seat\": {0}",
+            articles.Find(x => x.Title.Contains(title)));
         }
 
         private void addArticle(string type, int articleID, string title)
         {
             if(type == "book")
             {
-                BookType roman;
-                Article newArticle = new Book(Roman, articleID, title);
+                Article newArticle = new Book(BookType.ROMAN, articleID, title);
                 articles.Add(newArticle);
             }
             else if(type == "cd")
             {
-                Article newArticle = new CD(articleID, title);
-            articles.Add(newArticle);
+                //Article newArticle = new CD(articleID, title);
+                //articles.Add(newArticle);
             }
             else if(type == "DVD")
             {
-                Article newArticle = new DVD(articleID, title);
-            articles.Add(newArticle);
+                //Article newArticle = new DVD(articleID, title);
+                //articles.Add(newArticle);
             }
             else
             {
-                MessageBox.Show("Wrong type")
+                MessageBox.Show("Wrong type");
             }
         }
 
@@ -86,8 +87,8 @@ namespace Bibliotheek
 
         private void addMember(int memberID, string name, string adres, string email)
         {
-            Leden newMember = new Leden(memberID, name, adres, email);
-            members.Add(newMember);
+            //Leden newMember = new Leden(memberID, name, adres, email);
+            //members.Add(newMember);
         }
 
         private void changeMember()
@@ -116,3 +117,21 @@ namespace Bibliotheek
         }
     }
 }
+
+
+//if (type == "book")
+//            {
+                
+//            }
+//            else if (type == "cd")
+//            {
+                
+//            }
+//            else if (type == "DVD")
+//            {
+                
+//            }
+//            else
+//            {
+//                MessageBox.Show("Wrong type");
+//            }
