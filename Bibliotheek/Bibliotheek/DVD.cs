@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
+    enum DVDTypes
+    {
+        A,
+        B
+    }
+
     class DVD
     {
     }

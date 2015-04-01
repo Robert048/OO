@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    class Artikel
+    enum BookTypes
+    {
+        ROMAN,
+        STUDY
+    }
+
+    class Book : Article
     {
     }
 }

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    class CD
+    enum CDTypes
+    {
+        POP,
+        CLASSIC
+    }
+
+    class CD : Article
     {
     }
 }

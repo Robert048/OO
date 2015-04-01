@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    class Boek
+    abstract class Article
     {
+        public Article()
+        {
+
+        }
     }
 }
