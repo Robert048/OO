@@ -13,7 +13,7 @@ namespace Bibliotheek
     public partial class UitleenSysteem : Form
     {
         //Fields
-        private List<Artikel> articles;
+        private List<Article> articles;
         private List<Leden> members;
 
         //Constants
@@ -26,7 +26,7 @@ namespace Bibliotheek
         public UitleenSysteem()
         {
             InitializeComponent();
-            articles = new List<Artikel>();
+            articles = new List<Article>();
             members = new List<Leden>();
             
         }
@@ -45,10 +45,28 @@ namespace Bibliotheek
             
         }
 
-        private void addArticle(int articleID, string title)
+        private void addArticle(string type, int articleID, string title)
         {
-            Artikel newArticle = new Artikel(articleID, title);
+            if(type == "book")
+            {
+                BookType roman;
+                Article newArticle = new Book(Roman, articleID, title);
+                articles.Add(newArticle);
+            }
+            else if(type == "cd")
+            {
+                Article newArticle = new CD(articleID, title);
             articles.Add(newArticle);
+            }
+            else if(type == "DVD")
+            {
+                Article newArticle = new DVD(articleID, title);
+            articles.Add(newArticle);
+            }
+            else
+            {
+                MessageBox.Show("Wrong type")
+            }
         }
 
         private void changeArticle()
