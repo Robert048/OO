@@ -14,8 +14,8 @@ namespace Bibliotheek
 
     class Book : Article
     {
-        public const float LOAN_COSTS = 0.00F;
-        public const int COSTS_DAYS = 21; // in dagen
+        public const float LOAN_COSTS_BOOK = 0.00F;
+        public const int COSTFREE_LOAN_PERIOD = 21; // in dagen
 
         public BookType BookType { get; private set; }
 
