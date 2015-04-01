@@ -8,5 +8,6 @@ namespace Bibliotheek
 {
     class Boete
     {
+
     }
 }
