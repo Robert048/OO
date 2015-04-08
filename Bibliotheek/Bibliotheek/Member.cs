@@ -8,11 +8,11 @@ namespace Bibliotheek
 {
     class Member
     {
-        private int memberId { get; set; }
-        private string memberName { get; set; }
-        private string memberAdress { get; set; }
-        private string memberEmail { get; set; }
-        private int aantalArtikelen { get; set; }
+        public int memberId { get; set; }
+        public string memberName { get; set; }
+        public string memberAdress { get; set; }
+        public string memberEmail { get; set; }
+        public int aantalArtikelen { get; set; }
 
         public Member(int memberId,string memberName,string memberAdress,string memberEmail)
         {
