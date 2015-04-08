@@ -59,6 +59,8 @@ namespace Bibliotheek
         /// <param name="title"></param>
         private void addArticle(string articleType, string type, int articleID, string title)
         {
+            //TODO age of CD
+            int age = 0;
             if(articleType == "Book")
             {
                 if (type == "Roman")
@@ -80,12 +82,12 @@ namespace Bibliotheek
             {
                 if (type == "Classic")
                 {
-                    CD newArticle = new CD(CDType.CLASSIC, articleID, title);
+                    CD newArticle = new CD(CDType.CLASSIC, articleID, title, age);
                     articles.Add(newArticle);
                 }
                 else if (type == "Pop")
                 {
-                    CD newArticle = new CD(CDType.POP, articleID, title);
+                    CD newArticle = new CD(CDType.POP, articleID, title, age);
                     articles.Add(newArticle);
                 }
                 else
