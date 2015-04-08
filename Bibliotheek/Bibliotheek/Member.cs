@@ -8,10 +8,19 @@ namespace Bibliotheek
 {
     class Member
     {
-        private int lidId { get; set; }
-        private string naam { get; set; }
-        private string adres { get; set; }
-        private string email { get; set; }
+        private int memberId { get; set; }
+        private string memberName { get; set; }
+        private string memberAdress { get; set; }
+        private string memberEmail { get; set; }
         private int aantalArtikelen { get; set; }
+
+        public Member(int memberId,string memberName,string memberAdress,string memberEmail)
+        {
+            this.memberId = memberId;
+            this.memberName = memberName;
+            this.memberAdress = memberAdress;
+            this.memberEmail = memberEmail;
+        }
+
     }
 }

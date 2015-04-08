@@ -13,5 +13,9 @@ namespace Bibliotheek
         public int totaalCdInkomsten { get; set; }
         public int totaalDvdInkomsten { get; set; }
 
+        public Income()
+        {
+
+        }
     }
 }
