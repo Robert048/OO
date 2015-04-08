@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
+    /// <summary>
+    /// Types of cds
+    /// </summary>
     enum CDType
     {
         POP,
@@ -14,14 +17,16 @@ namespace Bibliotheek
 
     class CD : Article
     {
+        // constant variables
         public const float LOAN_COSTS_CD = 0.00F;
-        public int CdAge { get; set; }
 
+        public int CdAge { get; set; }
         public CDType CDType { get; private set; }
 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CD"/> class.
+        /// Initializes a new instance of the <see cref="Article"/> class.
         /// </summary>
         /// <param name="cdType">Type of the cd.</param>
         /// <param name="ArticleID">The article identifier.</param>

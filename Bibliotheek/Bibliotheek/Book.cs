@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
+    /// <summary>
+    /// Types of books
+    /// </summary>
     enum BookType
     {
         ROMAN,
@@ -13,6 +16,7 @@ namespace Bibliotheek
     }
     class Book : Article
     {
+        // constant variables
         public const float LOAN_COSTS_BOOK = 0.00F;
         public const int COSTFREE_LOAN_PERIOD = 21; // in dagen
 
@@ -20,6 +24,7 @@ namespace Bibliotheek
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Book"/> class.
+        /// Initializes a new instance of the <see cref="Article"/> class.
         /// </summary>
         /// <param name="bookType">Type of the book.</param>
         /// <param name="ArticleID">The article identifier.</param>
