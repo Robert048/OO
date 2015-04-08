@@ -146,8 +146,10 @@ namespace Bibliotheek
             refreshList();
         }
 
-        private void getMember()
+        private Member getMember(string name)
         {
+            Member member = members.Find( x => x.memberName.Contains(name));
+            return member;
 
         }
 
@@ -166,11 +168,39 @@ namespace Bibliotheek
 
         private void changeMember()
         {
+            try
+            {
+
+                int id = Convert.ToInt32(txtEditMemberID.Text);
+                addMember(id, txtEditMemberName.Text, txtEditMemberAdres.Text, txtEditMemberEmail.Text);
+                Member delete = getMember(memList.SelectedItem.ToString());
+                members.Remove(delete);
+                memList.Items.Remove(delete);
+                refreshMemList();
+
+                txtMemberID.Text = "";
+                txtMemberName.Text = "";
+                txtMemberAdres.Text = "";
+                txtMemberEmail.Text = "";
+
+                groupBox5.Visible = false;
+            }
+            
+            catch(Exception)
+            {
+                MessageBox.Show("You fucked up");
+            }
+         
+            
 
         }
 
         private void deleteMember()
         {
+            Member delete = getMember(memList.SelectedItem.ToString());
+            members.Remove(delete);
+            memList.Items.Remove(delete);
+            refreshMemList();
 
         }
 
@@ -247,12 +277,21 @@ namespace Bibliotheek
         /// <param name="e"></param>
         private void btnNewMember_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtMemberID.Text);
-            addMember(id,txtMemberName.Text, txtMemberAdres.Text, txtMemberEmail.Text);
-            txtMemberID.Text = "";
-            txtMemberName.Text = "";
-            txtMemberAdres.Text = "";
-            txtMemberEmail.Text = "";
+            try
+            {
+                int id = Convert.ToInt32(txtMemberID.Text);
+                addMember(id, txtMemberName.Text, txtMemberAdres.Text, txtMemberEmail.Text);
+                txtMemberID.Text = "";
+                txtMemberName.Text = "";
+                txtMemberAdres.Text = "";
+                txtMemberEmail.Text = "";
+                refreshMemList();
+            }
+
+            catch(Exception)
+            {
+                MessageBox.Show("Invalid values.");
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -266,6 +305,15 @@ namespace Bibliotheek
             foreach (Article article in articles)
             {
                 lbList.Items.Add(article.Title);
+            }
+        }
+
+        private void refreshMemList()
+        {
+            memList.Items.Clear();
+            foreach(Member m in members)
+            {
+                memList.Items.Add(m.memberName);
             }
         }
 
@@ -329,5 +377,32 @@ namespace Bibliotheek
                 cbEditType.Items.Add("BMovie");
             }
         }
+
+
+        private void btnMemberDelete_Click(object sender, EventArgs e)
+        {
+            deleteMember();
+        }
+
+        private void btnMemberEdit_Click(object sender, EventArgs e)
+        {
+            groupBox5.Visible = true;
+            var memEdit = getMember(memList.SelectedItem.ToString());
+            string memName = memEdit.GetType().ToString();
+            txtEditMemberID.Text = memEdit.memberId.ToString();
+            txtEditMemberName.Text = memEdit.memberName;
+            txtEditMemberAdres.Text = memEdit.memberAdress;
+            txtEditMemberEmail.Text = memEdit.memberEmail;
+
+
+        }
+
+        private void btnEditMember_Click(object sender, EventArgs e)
+        {
+            changeMember();
+        }
+
+
+
     }
 }

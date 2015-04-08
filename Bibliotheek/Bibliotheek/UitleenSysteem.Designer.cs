@@ -61,18 +61,19 @@
             this.txtEditArticleTitle = new System.Windows.Forms.TextBox();
             this.txtEditArticleID = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtEditMemberID = new System.Windows.Forms.TextBox();
+            this.txtEditMemberName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnEditMember = new System.Windows.Forms.Button();
+            this.txtEditMemberEmail = new System.Windows.Forms.TextBox();
+            this.txtEditMemberAdres = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnMemberEdit = new System.Windows.Forms.Button();
+            this.btnMemberDelete = new System.Windows.Forms.Button();
+            this.memList = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -88,40 +89,45 @@
             "Book",
             "CD",
             "DVD"});
-            this.cbArticleType.Location = new System.Drawing.Point(71, 19);
+            this.cbArticleType.Location = new System.Drawing.Point(142, 37);
+            this.cbArticleType.Margin = new System.Windows.Forms.Padding(6);
             this.cbArticleType.Name = "cbArticleType";
-            this.cbArticleType.Size = new System.Drawing.Size(121, 21);
+            this.cbArticleType.Size = new System.Drawing.Size(238, 33);
             this.cbArticleType.TabIndex = 0;
             this.cbArticleType.SelectedIndexChanged += new System.EventHandler(this.cbChange);
             // 
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(72, 47);
+            this.cbType.Location = new System.Drawing.Point(144, 90);
+            this.cbType.Margin = new System.Windows.Forms.Padding(6);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(121, 21);
+            this.cbType.Size = new System.Drawing.Size(238, 33);
             this.cbType.TabIndex = 1;
             this.cbType.Tag = "";
             // 
             // txtArticleID
             // 
-            this.txtArticleID.Location = new System.Drawing.Point(72, 75);
+            this.txtArticleID.Location = new System.Drawing.Point(144, 144);
+            this.txtArticleID.Margin = new System.Windows.Forms.Padding(6);
             this.txtArticleID.Name = "txtArticleID";
-            this.txtArticleID.Size = new System.Drawing.Size(120, 20);
+            this.txtArticleID.Size = new System.Drawing.Size(236, 31);
             this.txtArticleID.TabIndex = 2;
             // 
             // txtArticleTitle
             // 
-            this.txtArticleTitle.Location = new System.Drawing.Point(72, 102);
+            this.txtArticleTitle.Location = new System.Drawing.Point(144, 196);
+            this.txtArticleTitle.Margin = new System.Windows.Forms.Padding(6);
             this.txtArticleTitle.Name = "txtArticleTitle";
-            this.txtArticleTitle.Size = new System.Drawing.Size(120, 20);
+            this.txtArticleTitle.Size = new System.Drawing.Size(236, 31);
             this.txtArticleTitle.TabIndex = 3;
             // 
             // btnNewArticle
             // 
-            this.btnNewArticle.Location = new System.Drawing.Point(72, 129);
+            this.btnNewArticle.Location = new System.Drawing.Point(144, 248);
+            this.btnNewArticle.Margin = new System.Windows.Forms.Padding(6);
             this.btnNewArticle.Name = "btnNewArticle";
-            this.btnNewArticle.Size = new System.Drawing.Size(120, 23);
+            this.btnNewArticle.Size = new System.Drawing.Size(240, 44);
             this.btnNewArticle.TabIndex = 4;
             this.btnNewArticle.Text = "New article";
             this.btnNewArticle.UseVisualStyleBackColor = true;
@@ -137,9 +143,11 @@
             this.groupBox1.Controls.Add(this.cbType);
             this.groupBox1.Controls.Add(this.txtArticleTitle);
             this.groupBox1.Controls.Add(this.txtArticleID);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(24, 23);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(202, 162);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(404, 312);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a new Article";
@@ -147,27 +155,30 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 105);
+            this.label4.Location = new System.Drawing.Point(12, 202);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(119, 26);
             this.label4.TabIndex = 8;
             this.label4.Text = "Article Title";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 78);
+            this.label3.Location = new System.Drawing.Point(12, 150);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(101, 26);
             this.label3.TabIndex = 7;
             this.label3.Text = "Article ID";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Location = new System.Drawing.Point(12, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(120, 26);
             this.label1.TabIndex = 5;
             this.label1.Text = "Article type";
             // 
@@ -182,68 +193,77 @@
             this.groupBox2.Controls.Add(this.btnNewMember);
             this.groupBox2.Controls.Add(this.txtMemberEmail);
             this.groupBox2.Controls.Add(this.txtMemberAdres);
-            this.groupBox2.Location = new System.Drawing.Point(12, 180);
+            this.groupBox2.Location = new System.Drawing.Point(24, 346);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(202, 162);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Size = new System.Drawing.Size(404, 312);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add a new Member";
             // 
             // txtMemberID
             // 
-            this.txtMemberID.Location = new System.Drawing.Point(72, 19);
+            this.txtMemberID.Location = new System.Drawing.Point(144, 37);
+            this.txtMemberID.Margin = new System.Windows.Forms.Padding(6);
             this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberID.Size = new System.Drawing.Size(236, 31);
             this.txtMemberID.TabIndex = 2;
             // 
             // txtMemberName
             // 
-            this.txtMemberName.Location = new System.Drawing.Point(72, 49);
+            this.txtMemberName.Location = new System.Drawing.Point(144, 94);
+            this.txtMemberName.Margin = new System.Windows.Forms.Padding(6);
             this.txtMemberName.Name = "txtMemberName";
-            this.txtMemberName.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberName.Size = new System.Drawing.Size(236, 31);
             this.txtMemberName.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 50);
+            this.label7.Location = new System.Drawing.Point(12, 96);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(71, 26);
             this.label7.TabIndex = 9;
             this.label7.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 105);
+            this.label2.Location = new System.Drawing.Point(12, 202);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(68, 26);
             this.label2.TabIndex = 8;
             this.label2.Text = "Email";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 78);
+            this.label5.Location = new System.Drawing.Point(12, 150);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.Size = new System.Drawing.Size(69, 26);
             this.label5.TabIndex = 7;
             this.label5.Text = "Adres";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 22);
+            this.label6.Location = new System.Drawing.Point(12, 42);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 13);
+            this.label6.Size = new System.Drawing.Size(34, 26);
             this.label6.TabIndex = 5;
             this.label6.Text = "ID";
             // 
             // btnNewMember
             // 
-            this.btnNewMember.Location = new System.Drawing.Point(72, 129);
+            this.btnNewMember.Location = new System.Drawing.Point(144, 248);
+            this.btnNewMember.Margin = new System.Windows.Forms.Padding(6);
             this.btnNewMember.Name = "btnNewMember";
-            this.btnNewMember.Size = new System.Drawing.Size(120, 23);
+            this.btnNewMember.Size = new System.Drawing.Size(240, 44);
             this.btnNewMember.TabIndex = 6;
             this.btnNewMember.Text = "New member";
             this.btnNewMember.UseVisualStyleBackColor = true;
@@ -251,16 +271,18 @@
             // 
             // txtMemberEmail
             // 
-            this.txtMemberEmail.Location = new System.Drawing.Point(72, 102);
+            this.txtMemberEmail.Location = new System.Drawing.Point(144, 196);
+            this.txtMemberEmail.Margin = new System.Windows.Forms.Padding(6);
             this.txtMemberEmail.Name = "txtMemberEmail";
-            this.txtMemberEmail.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberEmail.Size = new System.Drawing.Size(236, 31);
             this.txtMemberEmail.TabIndex = 5;
             // 
             // txtMemberAdres
             // 
-            this.txtMemberAdres.Location = new System.Drawing.Point(72, 75);
+            this.txtMemberAdres.Location = new System.Drawing.Point(144, 144);
+            this.txtMemberAdres.Margin = new System.Windows.Forms.Padding(6);
             this.txtMemberAdres.Name = "txtMemberAdres";
-            this.txtMemberAdres.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberAdres.Size = new System.Drawing.Size(236, 31);
             this.txtMemberAdres.TabIndex = 4;
             // 
             // groupBox3
@@ -268,18 +290,21 @@
             this.groupBox3.Controls.Add(this.btnEdit);
             this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Controls.Add(this.lbList);
-            this.groupBox3.Location = new System.Drawing.Point(220, 12);
+            this.groupBox3.Location = new System.Drawing.Point(440, 23);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(191, 162);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox3.Size = new System.Drawing.Size(382, 312);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Articles list";
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(101, 129);
+            this.btnEdit.Location = new System.Drawing.Point(202, 248);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(84, 23);
+            this.btnEdit.Size = new System.Drawing.Size(168, 44);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -287,9 +312,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(6, 129);
+            this.btnDelete.Location = new System.Drawing.Point(12, 248);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(84, 23);
+            this.btnDelete.Size = new System.Drawing.Size(168, 44);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -298,9 +324,11 @@
             // lbList
             // 
             this.lbList.FormattingEnabled = true;
-            this.lbList.Location = new System.Drawing.Point(6, 19);
+            this.lbList.ItemHeight = 25;
+            this.lbList.Location = new System.Drawing.Point(12, 37);
+            this.lbList.Margin = new System.Windows.Forms.Padding(6);
             this.lbList.Name = "lbList";
-            this.lbList.Size = new System.Drawing.Size(179, 108);
+            this.lbList.Size = new System.Drawing.Size(354, 204);
             this.lbList.TabIndex = 1;
             // 
             // groupBox4
@@ -313,9 +341,11 @@
             this.groupBox4.Controls.Add(this.cbEditType);
             this.groupBox4.Controls.Add(this.txtEditArticleTitle);
             this.groupBox4.Controls.Add(this.txtEditArticleID);
-            this.groupBox4.Location = new System.Drawing.Point(417, 12);
+            this.groupBox4.Location = new System.Drawing.Point(834, 23);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 162);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox4.Size = new System.Drawing.Size(400, 312);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Edit Article";
@@ -324,27 +354,30 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 101);
+            this.label8.Location = new System.Drawing.Point(14, 194);
+            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.Size = new System.Drawing.Size(119, 26);
             this.label8.TabIndex = 16;
             this.label8.Text = "Article Title";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 74);
+            this.label9.Location = new System.Drawing.Point(14, 142);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.Size = new System.Drawing.Size(101, 26);
             this.label9.TabIndex = 15;
             this.label9.Text = "Article ID";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 18);
+            this.label10.Location = new System.Drawing.Point(14, 35);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.Size = new System.Drawing.Size(120, 26);
             this.label10.TabIndex = 14;
             this.label10.Text = "Article type";
             // 
@@ -355,17 +388,19 @@
             "Book",
             "CD",
             "DVD"});
-            this.cbEditArticleType.Location = new System.Drawing.Point(72, 15);
+            this.cbEditArticleType.Location = new System.Drawing.Point(144, 29);
+            this.cbEditArticleType.Margin = new System.Windows.Forms.Padding(6);
             this.cbEditArticleType.Name = "cbEditArticleType";
-            this.cbEditArticleType.Size = new System.Drawing.Size(121, 21);
+            this.cbEditArticleType.Size = new System.Drawing.Size(238, 33);
             this.cbEditArticleType.TabIndex = 9;
             this.cbEditArticleType.SelectedIndexChanged += new System.EventHandler(this.cbEditChange);
             // 
             // btnEditArticle
             // 
-            this.btnEditArticle.Location = new System.Drawing.Point(73, 125);
+            this.btnEditArticle.Location = new System.Drawing.Point(146, 240);
+            this.btnEditArticle.Margin = new System.Windows.Forms.Padding(6);
             this.btnEditArticle.Name = "btnEditArticle";
-            this.btnEditArticle.Size = new System.Drawing.Size(120, 23);
+            this.btnEditArticle.Size = new System.Drawing.Size(240, 44);
             this.btnEditArticle.TabIndex = 13;
             this.btnEditArticle.Text = "Edit article";
             this.btnEditArticle.UseVisualStyleBackColor = true;
@@ -381,171 +416,191 @@
             "Pop",
             "Amovie",
             "Bmovie"});
-            this.cbEditType.Location = new System.Drawing.Point(73, 43);
+            this.cbEditType.Location = new System.Drawing.Point(146, 83);
+            this.cbEditType.Margin = new System.Windows.Forms.Padding(6);
             this.cbEditType.Name = "cbEditType";
-            this.cbEditType.Size = new System.Drawing.Size(121, 21);
+            this.cbEditType.Size = new System.Drawing.Size(238, 33);
             this.cbEditType.TabIndex = 10;
             this.cbEditType.Tag = "";
             // 
             // txtEditArticleTitle
             // 
-            this.txtEditArticleTitle.Location = new System.Drawing.Point(73, 98);
+            this.txtEditArticleTitle.Location = new System.Drawing.Point(146, 188);
+            this.txtEditArticleTitle.Margin = new System.Windows.Forms.Padding(6);
             this.txtEditArticleTitle.Name = "txtEditArticleTitle";
-            this.txtEditArticleTitle.Size = new System.Drawing.Size(120, 20);
+            this.txtEditArticleTitle.Size = new System.Drawing.Size(236, 31);
             this.txtEditArticleTitle.TabIndex = 12;
             // 
             // txtEditArticleID
             // 
-            this.txtEditArticleID.Location = new System.Drawing.Point(73, 71);
+            this.txtEditArticleID.Location = new System.Drawing.Point(146, 137);
+            this.txtEditArticleID.Margin = new System.Windows.Forms.Padding(6);
             this.txtEditArticleID.Name = "txtEditArticleID";
-            this.txtEditArticleID.Size = new System.Drawing.Size(120, 20);
+            this.txtEditArticleID.Size = new System.Drawing.Size(236, 31);
             this.txtEditArticleID.TabIndex = 11;
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtEditMemberID);
+            this.groupBox5.Controls.Add(this.txtEditMemberName);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.comboBox1);
-            this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Controls.Add(this.comboBox2);
-            this.groupBox5.Controls.Add(this.textBox1);
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Location = new System.Drawing.Point(417, 180);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.btnEditMember);
+            this.groupBox5.Controls.Add(this.txtEditMemberEmail);
+            this.groupBox5.Controls.Add(this.txtEditMemberAdres);
+            this.groupBox5.Location = new System.Drawing.Point(834, 346);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 162);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox5.Size = new System.Drawing.Size(400, 312);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Edit Article";
             this.groupBox5.Visible = false;
             // 
+            // txtEditMemberID
+            // 
+            this.txtEditMemberID.Location = new System.Drawing.Point(146, 29);
+            this.txtEditMemberID.Margin = new System.Windows.Forms.Padding(6);
+            this.txtEditMemberID.Name = "txtEditMemberID";
+            this.txtEditMemberID.Size = new System.Drawing.Size(236, 31);
+            this.txtEditMemberID.TabIndex = 10;
+            // 
+            // txtEditMemberName
+            // 
+            this.txtEditMemberName.Location = new System.Drawing.Point(146, 86);
+            this.txtEditMemberName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtEditMemberName.Name = "txtEditMemberName";
+            this.txtEditMemberName.Size = new System.Drawing.Size(236, 31);
+            this.txtEditMemberName.TabIndex = 11;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 101);
+            this.label11.Location = new System.Drawing.Point(14, 88);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 13);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Article Title";
+            this.label11.Size = new System.Drawing.Size(71, 26);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Name";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 74);
+            this.label12.Location = new System.Drawing.Point(14, 194);
+            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Article ID";
+            this.label12.Size = new System.Drawing.Size(68, 26);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Email";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 18);
+            this.label13.Location = new System.Drawing.Point(14, 142);
+            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "Article type";
+            this.label13.Size = new System.Drawing.Size(69, 26);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Adres";
             // 
-            // comboBox1
+            // label14
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Book",
-            "CD",
-            "DVD"});
-            this.comboBox1.Location = new System.Drawing.Point(72, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(14, 34);
+            this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(34, 26);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "ID";
             // 
-            // button1
+            // btnEditMember
             // 
-            this.button1.Location = new System.Drawing.Point(73, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Edit article";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEditMember.Location = new System.Drawing.Point(146, 240);
+            this.btnEditMember.Margin = new System.Windows.Forms.Padding(6);
+            this.btnEditMember.Name = "btnEditMember";
+            this.btnEditMember.Size = new System.Drawing.Size(240, 44);
+            this.btnEditMember.TabIndex = 15;
+            this.btnEditMember.Text = "Edit member";
+            this.btnEditMember.UseVisualStyleBackColor = true;
+            this.btnEditMember.Click += new System.EventHandler(this.btnEditMember_Click);
             // 
-            // comboBox2
+            // txtEditMemberEmail
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Roman",
-            "Study",
-            "Classic",
-            "Pop",
-            "Amovie",
-            "Bmovie"});
-            this.comboBox2.Location = new System.Drawing.Point(73, 43);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 10;
-            this.comboBox2.Tag = "";
+            this.txtEditMemberEmail.Location = new System.Drawing.Point(146, 188);
+            this.txtEditMemberEmail.Margin = new System.Windows.Forms.Padding(6);
+            this.txtEditMemberEmail.Name = "txtEditMemberEmail";
+            this.txtEditMemberEmail.Size = new System.Drawing.Size(236, 31);
+            this.txtEditMemberEmail.TabIndex = 14;
             // 
-            // textBox1
+            // txtEditMemberAdres
             // 
-            this.textBox1.Location = new System.Drawing.Point(73, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(73, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 11;
+            this.txtEditMemberAdres.Location = new System.Drawing.Point(146, 136);
+            this.txtEditMemberAdres.Margin = new System.Windows.Forms.Padding(6);
+            this.txtEditMemberAdres.Name = "txtEditMemberAdres";
+            this.txtEditMemberAdres.Size = new System.Drawing.Size(236, 31);
+            this.txtEditMemberAdres.TabIndex = 12;
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button2);
-            this.groupBox6.Controls.Add(this.button3);
-            this.groupBox6.Controls.Add(this.listBox1);
-            this.groupBox6.Location = new System.Drawing.Point(220, 180);
+            this.groupBox6.Controls.Add(this.btnMemberEdit);
+            this.groupBox6.Controls.Add(this.btnMemberDelete);
+            this.groupBox6.Controls.Add(this.memList);
+            this.groupBox6.Location = new System.Drawing.Point(440, 346);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(191, 162);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox6.Size = new System.Drawing.Size(382, 312);
             this.groupBox6.TabIndex = 12;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Articles list";
+            this.groupBox6.Text = "Members list";
             // 
-            // button2
+            // btnMemberEdit
             // 
-            this.button2.Location = new System.Drawing.Point(101, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMemberEdit.Location = new System.Drawing.Point(202, 248);
+            this.btnMemberEdit.Margin = new System.Windows.Forms.Padding(6);
+            this.btnMemberEdit.Name = "btnMemberEdit";
+            this.btnMemberEdit.Size = new System.Drawing.Size(168, 44);
+            this.btnMemberEdit.TabIndex = 3;
+            this.btnMemberEdit.Text = "Edit";
+            this.btnMemberEdit.UseVisualStyleBackColor = true;
+            this.btnMemberEdit.Click += new System.EventHandler(this.btnMemberEdit_Click);
             // 
-            // button3
+            // btnMemberDelete
             // 
-            this.button3.Location = new System.Drawing.Point(6, 129);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnMemberDelete.Location = new System.Drawing.Point(12, 248);
+            this.btnMemberDelete.Margin = new System.Windows.Forms.Padding(6);
+            this.btnMemberDelete.Name = "btnMemberDelete";
+            this.btnMemberDelete.Size = new System.Drawing.Size(168, 44);
+            this.btnMemberDelete.TabIndex = 2;
+            this.btnMemberDelete.Text = "Delete";
+            this.btnMemberDelete.UseVisualStyleBackColor = true;
+            this.btnMemberDelete.Click += new System.EventHandler(this.btnMemberDelete_Click);
             // 
-            // listBox1
+            // memList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(179, 108);
-            this.listBox1.TabIndex = 1;
+            this.memList.FormattingEnabled = true;
+            this.memList.ItemHeight = 25;
+            this.memList.Location = new System.Drawing.Point(12, 37);
+            this.memList.Margin = new System.Windows.Forms.Padding(6);
+            this.memList.Name = "memList";
+            this.memList.Size = new System.Drawing.Size(354, 204);
+            this.memList.TabIndex = 1;
             // 
             // UitleenSysteem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 360);
+            this.ClientSize = new System.Drawing.Size(1330, 806);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "UitleenSysteem";
             this.Text = "Uitleen systeem";
             this.groupBox1.ResumeLayout(false);
@@ -597,18 +652,19 @@
         private System.Windows.Forms.TextBox txtEditArticleTitle;
         private System.Windows.Forms.TextBox txtEditArticleID;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnMemberEdit;
+        private System.Windows.Forms.Button btnMemberDelete;
+        private System.Windows.Forms.ListBox memList;
+        private System.Windows.Forms.TextBox txtEditMemberID;
+        private System.Windows.Forms.TextBox txtEditMemberName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnEditMember;
+        private System.Windows.Forms.TextBox txtEditMemberEmail;
+        private System.Windows.Forms.TextBox txtEditMemberAdres;
     }
 }
 
