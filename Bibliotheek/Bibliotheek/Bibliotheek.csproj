@@ -46,11 +46,11 @@
   <ItemGroup>
     <Compile Include="Article.cs" />
     <Compile Include="Book.cs" />
-    <Compile Include="Boete.cs" />
+    <Compile Include="Fine.cs" />
     <Compile Include="CD.cs" />
     <Compile Include="DVD.cs" />
-    <Compile Include="Inkomen.cs" />
-    <Compile Include="Leden.cs" />
+    <Compile Include="Income.cs" />
+    <Compile Include="Member.cs" />
     <Compile Include="UitleenSysteem.cs">
       <SubType>Form</SubType>
     </Compile>

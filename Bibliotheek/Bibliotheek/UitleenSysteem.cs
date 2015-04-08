@@ -14,7 +14,7 @@ namespace Bibliotheek
     {
         //Fields
         private List<Article> articles;
-        private List<Leden> members;
+        private List<Member> members;
 
         //Constants
         public const int NOTPICKEDUPFINE = 2;
@@ -27,7 +27,7 @@ namespace Bibliotheek
         {
             InitializeComponent();
             articles = new List<Article>();
-            members = new List<Leden>();
+            members = new List<Member>();
 
             Article newArticle = new Book(BookType.ROMAN, 1, "test");
             articles.Add(newArticle);

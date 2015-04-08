@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    class Inkomen
+    class Income
     {
         public int totaalReserveringKosten { get; set; }
         public int totaalBoeteKosten { get; set; }

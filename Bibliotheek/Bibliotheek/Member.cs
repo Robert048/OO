@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    class Leden
+    class Member
     {
         private int lidId { get; set; }
         private string naam { get; set; }

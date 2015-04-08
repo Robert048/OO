@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bibliotheek
 {
-    class Boete
+    class Fine
     {
         public const int WARNING_LETTER = 10;
         public const int WARNING_LETTER_SERIOUS = 100;
