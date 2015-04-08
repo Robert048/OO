@@ -29,9 +29,13 @@ namespace Bibliotheek
             articles = new List<Article>();
             members = new List<Member>();
 
+            cbType.Items.Add("Choose a type");
+            cbType.SelectedIndex = 0;
+
             Article newArticle = new Book(BookType.ROMAN, 1, "test");
             articles.Add(newArticle);
             getArticle("test");
+
         }
 
         /// <summary>
@@ -49,26 +53,62 @@ namespace Bibliotheek
             return article;
         }
 
-        private void addArticle(string type, int articleID, string title)
+        private void addArticle(string articleType, string type, int articleID, string title)
         {
-            if(type == "book")
+            if(articleType == "Book")
             {
-                Article newArticle = new Book(BookType.ROMAN, articleID, title);
-                articles.Add(newArticle);
+                if (type == "Roman")
+                {
+                    Book newArticle = new Book(BookType.ROMAN, articleID, title);
+                    articles.Add(newArticle);
+                }
+                else if (type == "Study")
+                {
+                    Book newArticle = new Book(BookType.STUDY, articleID, title);
+                    articles.Add(newArticle);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong type");
+                }
             }
-            else if(type == "cd")
+            else if (articleType == "CD")
             {
-                //Article newArticle = new CD(articleID, title);
-                //articles.Add(newArticle);
+                if (type == "Classic")
+                {
+                    CD newArticle = new CD(CDType.CLASSIC, articleID, title);
+                    articles.Add(newArticle);
+                }
+                else if (type == "Pop")
+                {
+                    CD newArticle = new CD(CDType.POP, articleID, title);
+                    articles.Add(newArticle);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong type");
+                }
             }
-            else if(type == "DVD")
+            else if (articleType == "DVD")
             {
-                //Article newArticle = new DVD(articleID, title);
-                //articles.Add(newArticle);
+                if (type == "AMovie")
+                {
+                    DVD newArticle = new DVD(DVDType.AMOVIE, articleID, title);
+                    articles.Add(newArticle);
+                }
+                else if (type == "BMovie")
+                {
+                    DVD newArticle = new DVD(DVDType.BMOVIE, articleID, title);
+                    articles.Add(newArticle);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong type");
+                }
             }
             else
             {
-                MessageBox.Show("Wrong type");
+                MessageBox.Show("+Wrong type");
             }
         }
 
@@ -89,8 +129,8 @@ namespace Bibliotheek
 
         private void addMember(int memberID, string name, string adres, string email)
         {
-            //Leden newMember = new Leden(memberID, name, adres, email);
-            //members.Add(newMember);
+            Member newMember = new Member(memberID, name, adres, email);
+            members.Add(newMember);
         }
 
         private void changeMember()
@@ -117,23 +157,38 @@ namespace Bibliotheek
         {
 
         }
+
+        private void cbChange(object sender, EventArgs e)
+        {
+            cbType.Items.Clear();
+            if(cbArticleType.SelectedItem.ToString() == "Book")
+            {
+                cbType.Items.Add("Roman");
+                cbType.Items.Add("Study");
+            }
+            else if (cbArticleType.SelectedItem.ToString() == "CD")
+            {
+                cbType.Items.Add("Classic");
+                cbType.Items.Add("Pop");
+            }
+            else if (cbArticleType.SelectedItem.ToString() == "DVD")
+            {
+                cbType.Items.Add("AMovie");
+                cbType.Items.Add("BMovie");
+            }
+            else
+            {
+                cbType.Items.Add("Choose a type");
+            }
+            cbType.SelectedIndex = 0;
+        }
+
+        private void btnNewArticle_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt16(txtArticleID.Text);
+            addArticle(cbArticleType.SelectedItem.ToString(), cbType.SelectedItem.ToString(), id, txtArticleTitle.Text);
+            txtArticleID.Text = "";
+            txtArticleTitle.Text = "";
+        }
     }
 }
-
-
-//if (type == "book")
-//            {
-                
-//            }
-//            else if (type == "cd")
-//            {
-                
-//            }
-//            else if (type == "DVD")
-//            {
-                
-//            }
-//            else
-//            {
-//                MessageBox.Show("Wrong type");
-//            }
