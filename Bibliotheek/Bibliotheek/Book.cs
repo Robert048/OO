@@ -11,7 +11,6 @@ namespace Bibliotheek
         ROMAN,
         STUDY
     }
-
     class Book : Article
     {
         public const float LOAN_COSTS_BOOK = 0.00F;
@@ -19,6 +18,12 @@ namespace Bibliotheek
 
         public BookType BookType { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Book"/> class.
+        /// </summary>
+        /// <param name="bookType">Type of the book.</param>
+        /// <param name="ArticleID">The article identifier.</param>
+        /// <param name="Title">The title.</param>
         public Book(BookType bookType, int ArticleID, string Title) 
             : base(ArticleID, Title)
         {

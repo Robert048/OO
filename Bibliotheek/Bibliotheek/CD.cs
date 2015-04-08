@@ -19,6 +19,13 @@ namespace Bibliotheek
 
         public CDType CDType { get; private set; }
 
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CD"/> class.
+        /// </summary>
+        /// <param name="cdType">Type of the cd.</param>
+        /// <param name="ArticleID">The article identifier.</param>
+        /// <param name="Title">The title.</param>
         public CD(CDType cdType, int ArticleID, string Title)
             : base(ArticleID, Title)
         {

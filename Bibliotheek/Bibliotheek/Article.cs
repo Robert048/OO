@@ -16,7 +16,12 @@ namespace Bibliotheek
         public Dictionary<int, DateTime> ReservationsList { get; set; }
         public int TimesLoaned { get; set; }
         public int LoanedPeriode { get; set; }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Article"/> class.
+        /// </summary>
+        /// <param name="ArticleID">The article identifier.</param>
+        /// <param name="Title">The title.</param>
         public Article(int ArticleID, string Title)
         {
             this.ArticleID = ArticleID;
