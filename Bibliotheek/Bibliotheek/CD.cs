@@ -32,10 +32,11 @@ namespace Bibliotheek
         /// <param name="cdType">Type of the cd.</param>
         /// <param name="ArticleID">The article identifier.</param>
         /// <param name="Title">The title.</param>
-        public CD(CDType cdType, int ArticleID, string Title)
+        public CD(CDType cdType, int ArticleID, string Title, int cdAge)
             : base(ArticleID, Title)
         {
             CDType = cdType;
+            CdAge = cdAge;
         }
     }
 }
