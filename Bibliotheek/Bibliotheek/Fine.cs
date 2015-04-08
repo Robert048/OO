@@ -13,6 +13,9 @@ namespace Bibliotheek
         public DateTime secondWarning;
         public const int HAND_OVER_BAILIFF = 2;
         
+        /// <summary>
+        /// create a new fine
+        /// </summary>
         public Fine()
         {
 
