@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
+            this.txtMemberName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,15 +47,38 @@
             this.btnNewMember = new System.Windows.Forms.Button();
             this.txtMemberEmail = new System.Windows.Forms.TextBox();
             this.txtMemberAdres = new System.Windows.Forms.TextBox();
-            this.txtMemberName = new System.Windows.Forms.TextBox();
-            this.txtMemberID = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbList = new System.Windows.Forms.ListBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lbList = new System.Windows.Forms.ListBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbEditArticleType = new System.Windows.Forms.ComboBox();
+            this.btnEditArticle = new System.Windows.Forms.Button();
+            this.cbEditType = new System.Windows.Forms.ComboBox();
+            this.txtEditArticleTitle = new System.Windows.Forms.TextBox();
+            this.txtEditArticleID = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbArticleType
@@ -157,12 +182,26 @@
             this.groupBox2.Controls.Add(this.btnNewMember);
             this.groupBox2.Controls.Add(this.txtMemberEmail);
             this.groupBox2.Controls.Add(this.txtMemberAdres);
-            this.groupBox2.Location = new System.Drawing.Point(220, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 180);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(202, 162);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add a new Member";
+            // 
+            // txtMemberID
+            // 
+            this.txtMemberID.Location = new System.Drawing.Point(72, 19);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberID.TabIndex = 2;
+            // 
+            // txtMemberName
+            // 
+            this.txtMemberName.Location = new System.Drawing.Point(72, 49);
+            this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberName.TabIndex = 3;
             // 
             // label7
             // 
@@ -224,48 +263,17 @@
             this.txtMemberAdres.Size = new System.Drawing.Size(120, 20);
             this.txtMemberAdres.TabIndex = 4;
             // 
-            // txtMemberName
-            // 
-            this.txtMemberName.Location = new System.Drawing.Point(72, 49);
-            this.txtMemberName.Name = "txtMemberName";
-            this.txtMemberName.Size = new System.Drawing.Size(120, 20);
-            this.txtMemberName.TabIndex = 3;
-            // 
-            // txtMemberID
-            // 
-            this.txtMemberID.Location = new System.Drawing.Point(72, 19);
-            this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
-            this.txtMemberID.TabIndex = 2;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnEdit);
             this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Controls.Add(this.lbList);
-            this.groupBox3.Location = new System.Drawing.Point(429, 12);
+            this.groupBox3.Location = new System.Drawing.Point(220, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(191, 162);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            // 
-            // lbList
-            // 
-            this.lbList.FormattingEnabled = true;
-            this.lbList.Location = new System.Drawing.Point(6, 19);
-            this.lbList.Name = "lbList";
-            this.lbList.Size = new System.Drawing.Size(179, 108);
-            this.lbList.TabIndex = 1;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(6, 129);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(84, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.groupBox3.Text = "Articles list";
             // 
             // btnEdit
             // 
@@ -275,12 +283,266 @@
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(6, 129);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(84, 23);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lbList
+            // 
+            this.lbList.FormattingEnabled = true;
+            this.lbList.Location = new System.Drawing.Point(6, 19);
+            this.lbList.Name = "lbList";
+            this.lbList.Size = new System.Drawing.Size(179, 108);
+            this.lbList.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.cbEditArticleType);
+            this.groupBox4.Controls.Add(this.btnEditArticle);
+            this.groupBox4.Controls.Add(this.cbEditType);
+            this.groupBox4.Controls.Add(this.txtEditArticleTitle);
+            this.groupBox4.Controls.Add(this.txtEditArticleID);
+            this.groupBox4.Location = new System.Drawing.Point(417, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 162);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Edit Article";
+            this.groupBox4.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Article Title";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Article ID";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Article type";
+            // 
+            // cbEditArticleType
+            // 
+            this.cbEditArticleType.FormattingEnabled = true;
+            this.cbEditArticleType.Items.AddRange(new object[] {
+            "Book",
+            "CD",
+            "DVD"});
+            this.cbEditArticleType.Location = new System.Drawing.Point(72, 15);
+            this.cbEditArticleType.Name = "cbEditArticleType";
+            this.cbEditArticleType.Size = new System.Drawing.Size(121, 21);
+            this.cbEditArticleType.TabIndex = 9;
+            this.cbEditArticleType.SelectedIndexChanged += new System.EventHandler(this.cbEditChange);
+            // 
+            // btnEditArticle
+            // 
+            this.btnEditArticle.Location = new System.Drawing.Point(73, 125);
+            this.btnEditArticle.Name = "btnEditArticle";
+            this.btnEditArticle.Size = new System.Drawing.Size(120, 23);
+            this.btnEditArticle.TabIndex = 13;
+            this.btnEditArticle.Text = "Edit article";
+            this.btnEditArticle.UseVisualStyleBackColor = true;
+            this.btnEditArticle.Click += new System.EventHandler(this.btnEditArticle_Click);
+            // 
+            // cbEditType
+            // 
+            this.cbEditType.FormattingEnabled = true;
+            this.cbEditType.Items.AddRange(new object[] {
+            "Roman",
+            "Study",
+            "Classic",
+            "Pop",
+            "Amovie",
+            "Bmovie"});
+            this.cbEditType.Location = new System.Drawing.Point(73, 43);
+            this.cbEditType.Name = "cbEditType";
+            this.cbEditType.Size = new System.Drawing.Size(121, 21);
+            this.cbEditType.TabIndex = 10;
+            this.cbEditType.Tag = "";
+            // 
+            // txtEditArticleTitle
+            // 
+            this.txtEditArticleTitle.Location = new System.Drawing.Point(73, 98);
+            this.txtEditArticleTitle.Name = "txtEditArticleTitle";
+            this.txtEditArticleTitle.Size = new System.Drawing.Size(120, 20);
+            this.txtEditArticleTitle.TabIndex = 12;
+            // 
+            // txtEditArticleID
+            // 
+            this.txtEditArticleID.Location = new System.Drawing.Point(73, 71);
+            this.txtEditArticleID.Name = "txtEditArticleID";
+            this.txtEditArticleID.Size = new System.Drawing.Size(120, 20);
+            this.txtEditArticleID.TabIndex = 11;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.comboBox1);
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.comboBox2);
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Location = new System.Drawing.Point(417, 180);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(200, 162);
+            this.groupBox5.TabIndex = 13;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Edit Article";
+            this.groupBox5.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 101);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 13);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Article Title";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Article ID";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 18);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Article type";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Book",
+            "CD",
+            "DVD"});
+            this.comboBox1.Location = new System.Drawing.Point(72, 15);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(73, 125);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Edit article";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Roman",
+            "Study",
+            "Classic",
+            "Pop",
+            "Amovie",
+            "Bmovie"});
+            this.comboBox2.Location = new System.Drawing.Point(73, 43);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 10;
+            this.comboBox2.Tag = "";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(73, 98);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(73, 71);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(120, 20);
+            this.textBox2.TabIndex = 11;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.button3);
+            this.groupBox6.Controls.Add(this.listBox1);
+            this.groupBox6.Location = new System.Drawing.Point(220, 180);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(191, 162);
+            this.groupBox6.TabIndex = 12;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Articles list";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(101, 129);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Edit";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 129);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Delete";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(6, 19);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(179, 108);
+            this.listBox1.TabIndex = 1;
             // 
             // UitleenSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 360);
+            this.ClientSize = new System.Drawing.Size(631, 360);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -291,6 +553,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -320,6 +587,28 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ListBox lbList;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbEditArticleType;
+        private System.Windows.Forms.Button btnEditArticle;
+        private System.Windows.Forms.ComboBox cbEditType;
+        private System.Windows.Forms.TextBox txtEditArticleTitle;
+        private System.Windows.Forms.TextBox txtEditArticleID;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

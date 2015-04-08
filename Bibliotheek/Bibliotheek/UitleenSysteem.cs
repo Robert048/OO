@@ -118,12 +118,30 @@ namespace Bibliotheek
 
         private void changeArticle()
         {
-
+            try
+            {
+                int id = Convert.ToInt32(txtEditArticleID.Text);
+                addArticle(cbEditArticleType.SelectedItem.ToString(), cbEditType.SelectedItem.ToString(), id, txtEditArticleTitle.Text);
+                Article delete = getArticle(lbList.SelectedItem.ToString());
+                articles.Remove(delete);
+                lbList.Items.Remove(delete);
+                refreshList();
+                txtEditArticleID.Text = "";
+                txtEditArticleTitle.Text = "";
+                groupBox4.Visible = false;
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Geen geldig ID");
+            }
         }
 
         private void deleteArticle()
         {
-
+            Article delete = getArticle(lbList.SelectedItem.ToString());
+            articles.Remove(delete);
+            lbList.Items.Remove(delete);
+            refreshList();
         }
 
         private void getMember()
@@ -210,7 +228,7 @@ namespace Bibliotheek
             {
                 int id = Convert.ToInt32(txtArticleID.Text);
                 addArticle(cbArticleType.SelectedItem.ToString(), cbType.SelectedItem.ToString(), id, txtArticleTitle.Text);
-                lbList.Items.Add(id.ToString() + " - " + txtArticleTitle.Text);
+                refreshList();
                 txtArticleID.Text = "";
                 txtArticleTitle.Text = "";
             }
@@ -233,6 +251,81 @@ namespace Bibliotheek
             txtMemberName.Text = "";
             txtMemberAdres.Text = "";
             txtMemberEmail.Text = "";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            deleteArticle();
+        }
+
+        private void refreshList()
+        {
+            lbList.Items.Clear();
+            foreach (Article article in articles)
+            {
+                lbList.Items.Add(article.Title);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            groupBox4.Visible = true;
+            var classEdit = getArticle(lbList.SelectedItem.ToString());
+            string className = classEdit.GetType().ToString();
+            if (className == "Bibliotheek.Book")
+            {
+                var edit = (getArticle(lbList.SelectedItem.ToString()) as Book);
+                cbEditArticleType.Text = "Book";
+                cbEditType.Text = edit.BookType.ToString();
+                txtEditArticleID.Text = edit.ArticleID.ToString();
+                txtEditArticleTitle.Text = edit.Title.ToString();
+            }
+            else if(className == "Bibliotheek.CD")
+            {
+                var edit = (getArticle(lbList.SelectedItem.ToString()) as CD);
+                cbEditArticleType.Text = "CD";
+                cbEditType.Text = edit.CDType.ToString();
+                txtEditArticleID.Text = edit.ArticleID.ToString();
+                txtEditArticleTitle.Text = edit.Title.ToString();
+            }
+            else if (className == "Bibliotheek.DVD")
+            {
+                var edit = (getArticle(lbList.SelectedItem.ToString()) as DVD);
+                cbEditArticleType.Text = "DVD";
+                cbEditType.Text = edit.DVDType.ToString();
+                txtEditArticleID.Text = edit.ArticleID.ToString();
+                txtEditArticleTitle.Text = edit.Title.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Wrong article type");
+            }
+
+        }
+
+        private void btnEditArticle_Click(object sender, EventArgs e)
+        {
+            changeArticle();
+        }
+
+        private void cbEditChange(object sender, EventArgs e)
+        {
+            cbEditType.Items.Clear();
+            if (cbEditArticleType.SelectedItem.ToString() == "Book")
+            {
+                cbEditType.Items.Add("Roman");
+                cbEditType.Items.Add("Study");
+            }
+            else if (cbEditArticleType.SelectedItem.ToString() == "CD")
+            {
+                cbEditType.Items.Add("Classic");
+                cbEditType.Items.Add("Pop");
+            }
+            else if (cbEditArticleType.SelectedItem.ToString() == "DVD")
+            {
+                cbEditType.Items.Add("AMovie");
+                cbEditType.Items.Add("BMovie");
+            }
         }
     }
 }
