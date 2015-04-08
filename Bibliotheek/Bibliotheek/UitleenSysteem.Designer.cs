@@ -34,20 +34,26 @@
             this.txtArticleTitle = new System.Windows.Forms.TextBox();
             this.btnNewArticle = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnNewMember = new System.Windows.Forms.Button();
+            this.txtMemberEmail = new System.Windows.Forms.TextBox();
+            this.txtMemberAdres = new System.Windows.Forms.TextBox();
+            this.txtMemberName = new System.Windows.Forms.TextBox();
+            this.txtMemberID = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbList = new System.Windows.Forms.ListBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbArticleType
@@ -113,14 +119,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a new Article";
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Article type";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Article Title";
             // 
             // label3
             // 
@@ -131,25 +137,26 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Article ID";
             // 
-            // label4
+            // label1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Article Title";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Article type";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtMemberID);
+            this.groupBox2.Controls.Add(this.txtMemberName);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.btnNewMember);
+            this.groupBox2.Controls.Add(this.txtMemberEmail);
+            this.groupBox2.Controls.Add(this.txtMemberAdres);
             this.groupBox2.Location = new System.Drawing.Point(220, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(202, 162);
@@ -157,82 +164,124 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add a new Member";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Name";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Article Title";
+            this.label2.Text = "Email";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 78);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Article ID";
+            this.label5.Text = "Adres";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.Size = new System.Drawing.Size(18, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Article type";
+            this.label6.Text = "ID";
             // 
-            // comboBox1
+            // btnNewMember
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Book",
-            "CD",
-            "DVD"});
-            this.comboBox1.Location = new System.Drawing.Point(71, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.btnNewMember.Location = new System.Drawing.Point(72, 129);
+            this.btnNewMember.Name = "btnNewMember";
+            this.btnNewMember.Size = new System.Drawing.Size(120, 23);
+            this.btnNewMember.TabIndex = 6;
+            this.btnNewMember.Text = "New member";
+            this.btnNewMember.UseVisualStyleBackColor = true;
+            this.btnNewMember.Click += new System.EventHandler(this.btnNewMember_Click);
             // 
-            // button1
+            // txtMemberEmail
             // 
-            this.button1.Location = new System.Drawing.Point(72, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "New member";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtMemberEmail.Location = new System.Drawing.Point(72, 102);
+            this.txtMemberEmail.Name = "txtMemberEmail";
+            this.txtMemberEmail.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberEmail.TabIndex = 5;
             // 
-            // comboBox2
+            // txtMemberAdres
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(72, 47);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
-            this.comboBox2.Tag = "";
+            this.txtMemberAdres.Location = new System.Drawing.Point(72, 75);
+            this.txtMemberAdres.Name = "txtMemberAdres";
+            this.txtMemberAdres.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberAdres.TabIndex = 4;
             // 
-            // textBox1
+            // txtMemberName
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtMemberName.Location = new System.Drawing.Point(72, 49);
+            this.txtMemberName.Name = "txtMemberName";
+            this.txtMemberName.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberName.TabIndex = 3;
             // 
-            // textBox2
+            // txtMemberID
             // 
-            this.textBox2.Location = new System.Drawing.Point(72, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtMemberID.Location = new System.Drawing.Point(72, 19);
+            this.txtMemberID.Name = "txtMemberID";
+            this.txtMemberID.Size = new System.Drawing.Size(120, 20);
+            this.txtMemberID.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnEdit);
+            this.groupBox3.Controls.Add(this.btnDelete);
+            this.groupBox3.Controls.Add(this.lbList);
+            this.groupBox3.Location = new System.Drawing.Point(429, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(191, 162);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // lbList
+            // 
+            this.lbList.FormattingEnabled = true;
+            this.lbList.Location = new System.Drawing.Point(6, 19);
+            this.lbList.Name = "lbList";
+            this.lbList.Size = new System.Drawing.Size(179, 108);
+            this.lbList.TabIndex = 1;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(6, 129);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(84, 23);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(101, 129);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(84, 23);
+            this.btnEdit.TabIndex = 3;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // UitleenSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 360);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UitleenSysteem";
@@ -241,6 +290,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,11 +310,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnNewMember;
+        private System.Windows.Forms.TextBox txtMemberEmail;
+        private System.Windows.Forms.TextBox txtMemberAdres;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMemberID;
+        private System.Windows.Forms.TextBox txtMemberName;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ListBox lbList;
     }
 }
 

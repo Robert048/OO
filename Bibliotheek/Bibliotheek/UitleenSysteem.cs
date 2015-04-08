@@ -28,14 +28,6 @@ namespace Bibliotheek
             InitializeComponent();
             articles = new List<Article>();
             members = new List<Member>();
-
-            cbType.Items.Add("Choose a type");
-            cbType.SelectedIndex = 0;
-
-            Article newArticle = new Book(BookType.ROMAN, 1, "test");
-            articles.Add(newArticle);
-            getArticle("test");
-
         }
 
         /// <summary>
@@ -47,12 +39,24 @@ namespace Bibliotheek
             return false;
         }
 
+        /// <summary>
+        /// finds an article with its title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         private Article getArticle(string title)
         {
             Article article = articles.Find(x => x.Title.Contains(title));
             return article;
         }
 
+        /// <summary>
+        /// adds an article to the articles list
+        /// </summary>
+        /// <param name="articleType"></param>
+        /// <param name="type"></param>
+        /// <param name="articleID"></param>
+        /// <param name="title"></param>
         private void addArticle(string articleType, string type, int articleID, string title)
         {
             if(articleType == "Book")
@@ -108,7 +112,7 @@ namespace Bibliotheek
             }
             else
             {
-                MessageBox.Show("+Wrong type");
+                MessageBox.Show("Wrong article type");
             }
         }
 
@@ -127,6 +131,13 @@ namespace Bibliotheek
 
         }
 
+        /// <summary>
+        /// adds a member to the members list
+        /// </summary>
+        /// <param name="memberID"></param>
+        /// <param name="name"></param>
+        /// <param name="adres"></param>
+        /// <param name="email"></param>
         private void addMember(int memberID, string name, string adres, string email)
         {
             Member newMember = new Member(memberID, name, adres, email);
@@ -158,6 +169,11 @@ namespace Bibliotheek
 
         }
 
+        /// <summary>
+        /// combobox change method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbChange(object sender, EventArgs e)
         {
             cbType.Items.Clear();
@@ -183,12 +199,40 @@ namespace Bibliotheek
             cbType.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// button method for creating new article
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNewArticle_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt16(txtArticleID.Text);
-            addArticle(cbArticleType.SelectedItem.ToString(), cbType.SelectedItem.ToString(), id, txtArticleTitle.Text);
-            txtArticleID.Text = "";
-            txtArticleTitle.Text = "";
+            try
+            {
+                int id = Convert.ToInt32(txtArticleID.Text);
+                addArticle(cbArticleType.SelectedItem.ToString(), cbType.SelectedItem.ToString(), id, txtArticleTitle.Text);
+                lbList.Items.Add(id.ToString() + " - " + txtArticleTitle.Text);
+                txtArticleID.Text = "";
+                txtArticleTitle.Text = "";
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Geen geldig ID");
+            }
+        }
+
+        /// <summary>
+        /// button method for creating new member
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNewMember_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtMemberID.Text);
+            addMember(id,txtMemberName.Text, txtMemberAdres.Text, txtMemberEmail.Text);
+            txtMemberID.Text = "";
+            txtMemberName.Text = "";
+            txtMemberAdres.Text = "";
+            txtMemberEmail.Text = "";
         }
     }
 }
