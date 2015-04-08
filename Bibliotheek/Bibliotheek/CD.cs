@@ -19,8 +19,9 @@ namespace Bibliotheek
     {
         // constant variables
         public const float LOAN_COSTS_CD = 0.00F;
-
+        // The age of the current cd instance
         public int CdAge { get; set; }
+        // The type of the current cd instance
         public CDType CDType { get; private set; }
 
 

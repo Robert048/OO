@@ -18,8 +18,9 @@ namespace Bibliotheek
     {
         // constant variables
         public const float LOAN_COSTS_BOOK = 0.00F;
-        public const int COSTFREE_LOAN_PERIOD = 21; // in dagen
+        public const int COSTFREE_LOAN_PERIOD = 21; // in days
 
+        // The current type of book for this instance
         public BookType BookType { get; private set; }
 
         /// <summary>
