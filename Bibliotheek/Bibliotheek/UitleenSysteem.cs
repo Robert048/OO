@@ -138,9 +138,9 @@ namespace Bibliotheek
                 txtEditArticleTitle.Text = "";
                 groupBox4.Visible = false;
             }
-            catch (FormatException)
+            catch (Exception)
             {
-                MessageBox.Show("Geen geldig ID");
+                MessageBox.Show("Geen geldig ID en anders screw you");
             }
         }
 
@@ -232,6 +232,107 @@ namespace Bibliotheek
             }
         }
 
+        public double checkFine(int diff, int articleID)
+        {
+            Article article = articles.Find(x => x.ArticleID == articleID);
+            var classEdit = getArticle(lbList.SelectedItem.ToString());
+            string className = classEdit.GetType().ToString();
+
+            
+            double fine = 0;
+
+            if (className == "Bibliotheek.Book")
+            {
+                var book = (getArticle(lbList.SelectedItem.ToString()) as Book);
+                if(book.BookType.ToString() == "ROMAN")
+                {
+                    diff = diff - 21;
+                    if (diff > 0)
+                    {
+                        fine = 0.25 * diff;
+                    }
+                    else
+                    {
+                        fine = 0;
+                    }
+                }
+
+                if(book.BookType.ToString() == "STUDY")
+                {
+                    diff = diff - 21;
+                    if (diff > 0)
+                    {
+                        fine = 1 * diff;
+                    }
+                    else
+                    {
+                        fine = 0;
+                    }
+                }
+
+            }
+            else if (className == "Bibliotheek.CD")
+            {
+                var cd = (getArticle(lbList.SelectedItem.ToString()) as CD);
+                if (cd.CDType.ToString() == "POP")
+                {
+                    diff = diff - 21;
+                    if (diff > 0)
+                    {
+                        fine = 2 * diff;
+                    }
+                    else
+                    {
+                        fine = 0;
+                    }
+                }
+
+                if (cd.CDType.ToString() == "CLASSIC")
+                {
+                    diff = diff - 21;
+                    if (diff > 0)
+                    {
+                        fine = 1.50 * diff;
+                    }
+                    else
+                    {
+                        diff = 0;
+                    }
+                }
+            }
+            else if (className == "Bibliotheek.DVD")
+            {
+                var dvd = (getArticle(lbList.SelectedItem.ToString()) as DVD);
+
+                if (dvd.DVDType.ToString() == "AMOVIE")
+                {
+                    diff = diff - 21;
+                    if (diff > 0)
+                    {
+                        fine = 1 * diff;
+                    }
+                    else
+                    {
+                        fine = 0;
+                    }
+                }
+                if (dvd.DVDType.ToString() == "BMOVIE")
+                {
+                    diff = diff - 21;
+                    if (diff > 0)
+                    {
+                        fine = 1 * diff;
+                    }
+                    else
+                    {
+                        fine = 0;
+                    }
+                }
+            }
+
+            return fine;
+        }
+
         private void returnArticle(int memberID, int articleID)
         {
             Article article = articles.Find(x => x.ArticleID == articleID);
@@ -240,11 +341,11 @@ namespace Bibliotheek
             {
                 article.LoanStatus = false;
                 TimeSpan duration = article.LoanDate - DateTime.Now;
-                int time = Convert.ToInt32(duration.TotalDays);
+                int time = Convert.ToInt32(duration.TotalDays + 54);
                 article.LoanedPeriod = article.LoanedPeriod + time;
                 article.LoanMember = -1;
                 member.numberOfArticles--;
-                MessageBox.Show("Article returned");
+                MessageBox.Show("Article returned" + " Fine is :  €" + checkFine(time, articleID).ToString());
             }
             else
             {
@@ -462,10 +563,17 @@ namespace Bibliotheek
 
         private void btnReserve_Click(object sender, EventArgs e)
         {
-            Member memberId = getMember(memList.SelectedItem.ToString());
-            Article articleId = getArticle(lbList.SelectedItem.ToString());
+            try
+            {
+                Member memberId = getMember(memList.SelectedItem.ToString());
+                Article articleId = getArticle(lbList.SelectedItem.ToString());
 
-            ReserveArticle(memberId.memberId, articleId.ArticleID);
+                ReserveArticle(memberId.memberId, articleId.ArticleID);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("gaga");
+            }
         }
 
         private void btnLoan_Click(object sender, EventArgs e)
