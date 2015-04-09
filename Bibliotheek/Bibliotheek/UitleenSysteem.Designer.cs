@@ -74,6 +74,8 @@
             this.btnMemberEdit = new System.Windows.Forms.Button();
             this.btnMemberDelete = new System.Windows.Forms.Button();
             this.memList = new System.Windows.Forms.ListBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnReserve = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -589,11 +591,32 @@
             this.memList.Size = new System.Drawing.Size(354, 204);
             this.memList.TabIndex = 1;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Location = new System.Drawing.Point(24, 668);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(404, 310);
+            this.groupBox7.TabIndex = 14;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "groupBox7";
+            // 
+            // btnReserve
+            // 
+            this.btnReserve.Location = new System.Drawing.Point(440, 668);
+            this.btnReserve.Name = "btnReserve";
+            this.btnReserve.Size = new System.Drawing.Size(382, 55);
+            this.btnReserve.TabIndex = 15;
+            this.btnReserve.Text = "Uitlenen";
+            this.btnReserve.UseVisualStyleBackColor = true;
+            this.btnReserve.Click += new System.EventHandler(this.btnReserve_Click);
+            // 
             // UitleenSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 806);
+            this.ClientSize = new System.Drawing.Size(1350, 1040);
+            this.Controls.Add(this.btnReserve);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
@@ -665,6 +688,8 @@
         private System.Windows.Forms.Button btnEditMember;
         private System.Windows.Forms.TextBox txtEditMemberEmail;
         private System.Windows.Forms.TextBox txtEditMemberAdres;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button btnReserve;
     }
 }
 

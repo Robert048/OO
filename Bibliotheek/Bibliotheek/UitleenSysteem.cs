@@ -216,6 +216,9 @@ namespace Bibliotheek
 
         private void ReserveArticle(int memberID, int articleID)
         {
+            Article article = articles.Find(x => x.ArticleID == articleID);
+            DateTime date = DateTime.Now;
+            article.ReservationsList.Add(memberID, date);
 
         }
 
@@ -400,6 +403,14 @@ namespace Bibliotheek
         private void btnEditMember_Click(object sender, EventArgs e)
         {
             changeMember();
+        }
+
+        private void btnReserve_Click(object sender, EventArgs e)
+        {
+            Member memberId = getMember(memList.SelectedItem.ToString());
+            Article articleId = getArticle(lbList.SelectedItem.ToString());
+
+            ReserveArticle(memberId.memberId, articleId.ArticleID);
         }
 
 
