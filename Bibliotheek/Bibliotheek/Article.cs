@@ -34,6 +34,7 @@ namespace Bibliotheek
         {
             this.ArticleID = ArticleID;
             this.Title = Title;
+            ReservationsList = new Dictionary<int,DateTime>();
         }
     }
 }
