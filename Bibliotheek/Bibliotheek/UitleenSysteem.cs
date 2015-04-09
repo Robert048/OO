@@ -232,9 +232,24 @@ namespace Bibliotheek
             }
         }
 
-        private void returnArticle()
+        private void returnArticle(int memberID, int articleID)
         {
-
+            Article article = articles.Find(x => x.ArticleID == articleID);
+            Member member = members.Find(x => x.memberId == memberID);
+            if (article.LoanMember == memberID)
+            {
+                article.LoanStatus = false;
+                TimeSpan duration = article.LoanDate - DateTime.Now;
+                int time = Convert.ToInt32(duration.TotalDays);
+                article.LoanedPeriod = article.LoanedPeriod + time;
+                article.LoanMember = -1;
+                member.numberOfArticles--;
+                MessageBox.Show("Article returned");
+            }
+            else
+            {
+                MessageBox.Show("No match");
+            }
         }
 
         /// <summary>
@@ -252,6 +267,10 @@ namespace Bibliotheek
             else if(article.ReservationsList.ContainsKey(memberID))
             {
                 MessageBox.Show("Already reserved by this member");
+            }
+            else if(article.LoanMember == memberID)
+            {
+                MessageBox.Show("Member already has this article loaned");
             }
             else
             {
@@ -462,7 +481,7 @@ namespace Bibliotheek
             Member memberId = getMember(memList.SelectedItem.ToString());
             Article articleId = getArticle(lbList.SelectedItem.ToString());
 
-            (memberId.memberId, articleId.ArticleID);
+            returnArticle(memberId.memberId, articleId.ArticleID);
         }
     }
 }

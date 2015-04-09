@@ -27,7 +27,7 @@ namespace Bibliotheek
         // Times the object was loaned
         public int TimesLoaned { get; set; }
         // The periode of loan
-        public int LoanedPeriode { get; set; }
+        public int LoanedPeriod { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Article"/> class.
@@ -41,7 +41,7 @@ namespace Bibliotheek
             ReservationsList = new Dictionary<int,DateTime>();
             ArticleReturnDate = new DateTime();
             TimesLoaned = 0;
-            LoanedPeriode = 0;
+            LoanedPeriod = 0;
             LoanStatus = false;
         }
     }
