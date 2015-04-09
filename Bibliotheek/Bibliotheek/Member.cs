@@ -12,7 +12,8 @@ namespace Bibliotheek
         public string memberName { get; set; }
         public string memberAdress { get; set; }
         public string memberEmail { get; set; }
-        public int aantalArtikelen { get; set; }
+        public int numberOfArticles { get; set; }
+        public const int MAX_ARTICLES = 6;
 
         /// <summary>
         /// Create a new member of member class
@@ -27,6 +28,16 @@ namespace Bibliotheek
             this.memberName = memberName;
             this.memberAdress = memberAdress;
             this.memberEmail = memberEmail;
+            numberOfArticles = 0;
+        }
+
+        /// <summary>
+        /// get maximum articles
+        /// </summary>
+        /// <returns></returns>
+        public int getMaxArticles()
+        {
+            return MAX_ARTICLES;
         }
 
     }

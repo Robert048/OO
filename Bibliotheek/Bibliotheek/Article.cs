@@ -17,7 +17,11 @@ namespace Bibliotheek
         // The identifier of the current article
         public int ArticleID { get; set; }
         // The status of loan
-        public int LoanStatus { get; set; }
+        public bool LoanStatus { get; set; }
+        // The date of loan
+        public DateTime LoanDate { get; set; }
+        // The member to the loan
+        public int LoanMember { get; set; }
         // The reservation list for the current instance
         public Dictionary<int, DateTime> ReservationsList { get; set; }
         // Times the object was loaned
@@ -35,6 +39,10 @@ namespace Bibliotheek
             this.ArticleID = ArticleID;
             this.Title = Title;
             ReservationsList = new Dictionary<int,DateTime>();
+            ArticleReturnDate = new DateTime();
+            TimesLoaned = 0;
+            LoanedPeriode = 0;
+            LoanStatus = false;
         }
     }
 }

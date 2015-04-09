@@ -33,10 +33,16 @@ namespace Bibliotheek
         /// <summary>
         /// check the availability of an article.
         /// </summary>
-        private bool AvailableArticle()
+        private bool AvailableArticle(Article article)
         {
-
-            return false;
+            if ((article.LoanStatus == false) && article.ReservationsList.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -190,9 +196,6 @@ namespace Bibliotheek
             {
                 MessageBox.Show("You fucked up");
             }
-         
-            
-
         }
 
         private void deleteMember()
@@ -204,9 +207,29 @@ namespace Bibliotheek
 
         }
 
-        private void loan()
+        private void loan(int memberID, int articleID)
         {
-
+            Article article = articles.Find(x => x.ArticleID == articleID);
+            Member member = members.Find(x => x.memberId == memberID);
+            if (member.numberOfArticles < member.getMaxArticles())
+            {
+                if (AvailableArticle(article))
+                {
+                    article.LoanStatus = true;
+                    article.LoanDate = DateTime.Now;
+                    article.LoanMember = memberID;
+                    member.numberOfArticles++;
+                    MessageBox.Show("Article loaned");
+                }
+                else
+                {
+                    MessageBox.Show("Article unavailable, please reserve it.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Too many articles loaned");
+            }
         }
 
         private void returnArticle()
@@ -214,12 +237,27 @@ namespace Bibliotheek
 
         }
 
+        /// <summary>
+        /// Method to reserve an article
+        /// </summary>
+        /// <param name="memberID">ID of the member that wants to reserve an article</param>
+        /// <param name="articleID">the article that is gonna be reserved</param>
         private void ReserveArticle(int memberID, int articleID)
         {
             Article article = articles.Find(x => x.ArticleID == articleID);
-            DateTime date = DateTime.Now;
-            article.ReservationsList.Add(memberID, date);
-
+            if(AvailableArticle(article))
+            {
+                MessageBox.Show("Article available, Loan instead of reserve");
+            }
+            else if(article.ReservationsList.ContainsKey(memberID))
+            {
+                MessageBox.Show("Already reserved by this member");
+            }
+            else
+            {
+                article.ReservationsList.Add(memberID, DateTime.Now);
+                MessageBox.Show("Gereserveerd");
+            }
         }
 
         /// <summary>
@@ -396,8 +434,6 @@ namespace Bibliotheek
             txtEditMemberName.Text = memEdit.memberName;
             txtEditMemberAdres.Text = memEdit.memberAdress;
             txtEditMemberEmail.Text = memEdit.memberEmail;
-
-
         }
 
         private void btnEditMember_Click(object sender, EventArgs e)
@@ -413,7 +449,20 @@ namespace Bibliotheek
             ReserveArticle(memberId.memberId, articleId.ArticleID);
         }
 
+        private void btnLoan_Click(object sender, EventArgs e)
+        {
+            Member memberId = getMember(memList.SelectedItem.ToString());
+            Article articleId = getArticle(lbList.SelectedItem.ToString());
 
+            loan(memberId.memberId, articleId.ArticleID);
+        }
 
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Member memberId = getMember(memList.SelectedItem.ToString());
+            Article articleId = getArticle(lbList.SelectedItem.ToString());
+
+            (memberId.memberId, articleId.ArticleID);
+        }
     }
 }
