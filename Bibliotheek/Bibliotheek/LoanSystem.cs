@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Bibliotheek
 {
-    public partial class UitleenSysteem : Form
+    public partial class LoanSystem : Form
     {
         //Fields
         private List<Article> articles;
@@ -40,7 +40,7 @@ namespace Bibliotheek
         /// <summary>
         /// constructor
         /// </summary>
-        public UitleenSysteem()
+        public LoanSystem()
         {
             InitializeComponent();
             articles = new List<Article>();

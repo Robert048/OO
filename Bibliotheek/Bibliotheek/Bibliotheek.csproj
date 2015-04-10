@@ -51,11 +51,11 @@
     <Compile Include="DVD.cs" />
     <Compile Include="Income.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="UitleenSysteem.cs">
+    <Compile Include="LoanSystem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UitleenSysteem.Designer.cs">
-      <DependentUpon>UitleenSysteem.cs</DependentUpon>
+    <Compile Include="LoanSystem.Designer.cs">
+      <DependentUpon>LoanSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +69,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UitleenSysteem.resx">
-      <DependentUpon>UitleenSysteem.cs</DependentUpon>
+    <EmbeddedResource Include="LoanSystem.resx">
+      <DependentUpon>LoanSystem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

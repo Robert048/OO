@@ -16,7 +16,7 @@ namespace Bibliotheek
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UitleenSysteem());
+            Application.Run(new LoanSystem());
         }
     }
 }

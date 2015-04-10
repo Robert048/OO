@@ -1,6 +1,6 @@
 ﻿namespace Bibliotheek
 {
-    partial class UitleenSysteem
+    partial class LoanSystem
     {
         /// <summary>
         /// Required designer variable.
