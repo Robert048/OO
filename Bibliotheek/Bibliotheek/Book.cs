@@ -16,9 +16,6 @@ namespace Bibliotheek
     }
     class Book : Article
     {
-        // constant variables
-        public const float LOAN_COSTS_BOOK = 0.00F;
-
         // The current type of book for this instance
         public BookType BookType { get; private set; }
 

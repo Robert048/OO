@@ -8,17 +8,20 @@ namespace Bibliotheek
 {
     class Income
     {
-        public int totaalReserveringKosten { get; set; }
-        public int totaalBoeteKosten { get; set; }
-        public int totaalCdInkomsten { get; set; }
-        public int totaalDvdInkomsten { get; set; }
+        public float totaalReserveringKosten { get; set; }
+        public float totaalBoeteKosten { get; set; }
+        public float totaalCdInkomsten { get; set; }
+        public float totaalDvdInkomsten { get; set; }
 
         /// <summary>
         /// create a new income
         /// </summary>
         public Income()
         {
-
+            totaalReserveringKosten = 0.00F;
+            totaalBoeteKosten = 0.00F;
+            totaalCdInkomsten = 0.00F;
+            totaalDvdInkomsten = 0.00F;
         }
     }
 }

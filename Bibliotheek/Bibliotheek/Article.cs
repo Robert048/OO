@@ -8,8 +8,6 @@ namespace Bibliotheek
 {
     abstract class Article
     {
-        // constant variables
-        public const float RESERVATION_COSTS = 0.30f;
         // The return date of the article
         public DateTime ArticleReturnDate { get; set; }
         // The title of the current article

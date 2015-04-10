@@ -15,10 +15,9 @@ namespace Bibliotheek
         //Fields
         private List<Article> articles;
         private List<Member> members;
+        private Income income;
 
         //Constants
-        public const int NOTPICKEDUPFINE = 2;
-        public const int EXPIREDRESERVATION = 7;
         public const int BOOK_ROMAN_COSTFREE_LOAN_PERIOD = 21; // in days, roman books
         public const int BOOK_STUDY_COSTFREE_LOAN_PERIOD = 30; // in days, study books
         public const int CD_COST_LOAN_PERIOD = 10; // in days, cds
@@ -28,6 +27,12 @@ namespace Bibliotheek
         public const float LOAN_COSTS_CD_CLASSIC = 2.00F; //in euro, classic cd's
         public const float LOAN_COSTS_CD_POP = 1.00F; //in euro, popular cd's
         public const float LOAN_COSTS_DVD = 2.00F; //in euro, dvd's
+        public const float FINE_ROMAN = 0.25F; // in euro, roman books
+        public const float FINE_STUDY = 1.00F; // in euro, study books
+        public const float FINE_CLASSIC = 1.50F; // in euro, classic cds
+        public const float FINE_POP = 2.00F; // in euro, pop CDs
+        public const float FINE_DVD_A = 2.00F; // in euro, DVDs
+        public const float FINE_DVD_B = 1.00F; // in euro, DVDs
 
 
 
@@ -40,6 +45,7 @@ namespace Bibliotheek
             InitializeComponent();
             articles = new List<Article>();
             members = new List<Member>();
+            income = new Income();
         }
 
         /// <summary>
@@ -282,44 +288,38 @@ namespace Bibliotheek
         /// <summary>
         /// method to check the fine if the article is returned
         /// </summary>
-        /// <param name="diff"></param>
+        /// <param name="daysDifference"></param>
         /// <param name="articleID"></param>
         /// <returns></returns>
-        public double checkFine(int diff, int articleID)
+        public float checkFine(int daysDifference, int articleID)
         {
             Article article = articles.Find(x => x.ArticleID == articleID);
             var classEdit = getArticle(lbList.SelectedItem.ToString());
             string className = classEdit.GetType().ToString();
 
             
-            double fine = 0;
+            float fine = 0;
 
             if (className == "Bibliotheek.Book")
             {
                 var book = (getArticle(lbList.SelectedItem.ToString()) as Book);
                 if(book.BookType.ToString() == "ROMAN")
                 {
-                    diff = diff - BOOK_ROMAN_COSTFREE_LOAN_PERIOD;
-                    if (diff > 0)
+                    daysDifference = daysDifference - BOOK_ROMAN_COSTFREE_LOAN_PERIOD;
+                    if (daysDifference > 0)
                     {
-                        fine = 0.25 * diff + LOAN_COSTS_BOOK;
-                    }
-                    else
-                    {
-                        fine = 0;
+                        fine = FINE_ROMAN * daysDifference + LOAN_COSTS_BOOK;
+                        income.totaalBoeteKosten = income.totaalBoeteKosten + fine;
                     }
                 }
 
                 if(book.BookType.ToString() == "STUDY")
                 {
-                    diff = diff - BOOK_STUDY_COSTFREE_LOAN_PERIOD;
-                    if (diff > 0)
+                    daysDifference = daysDifference - BOOK_STUDY_COSTFREE_LOAN_PERIOD;
+                    if (daysDifference > 0)
                     {
-                        fine = 1 * diff + LOAN_COSTS_BOOK;
-                    }
-                    else
-                    {
-                        fine = 0;
+                        fine = FINE_STUDY * daysDifference + LOAN_COSTS_BOOK;
+                        income.totaalBoeteKosten = income.totaalBoeteKosten + fine;
                     }
                 }
 
@@ -329,28 +329,24 @@ namespace Bibliotheek
                 var cd = (getArticle(lbList.SelectedItem.ToString()) as CD);
                 if (cd.CDType.ToString() == "POP")
                 {
-                    diff = diff - CD_COST_LOAN_PERIOD;
-                    if (diff > 0)
+                    fine = fine + 1;
+                    daysDifference = daysDifference - CD_COST_LOAN_PERIOD;
+                    if (daysDifference > 0)
                     {
-                        fine = 1.50 * diff;
+                        fine = fine + FINE_POP * daysDifference;
                     }
-                    else
-                    {
-                        fine = 0;
-                    }
+                    income.totaalCdInkomsten = income.totaalCdInkomsten + fine;
                 }
 
                 if (cd.CDType.ToString() == "CLASSIC")
                 {
-                    diff = diff - CD_COST_LOAN_PERIOD;
-                    if (diff > 0)
+                    fine = fine + 2;
+                    daysDifference = daysDifference - CD_COST_LOAN_PERIOD;
+                    if (daysDifference > 0)
                     {
-                        fine = 2 * diff;
+                        fine = fine + FINE_CLASSIC * daysDifference;
                     }
-                    else
-                    {
-                        diff = 0;
-                    }
+                    income.totaalCdInkomsten = income.totaalCdInkomsten + fine;
                 }
             }
             else if (className == "Bibliotheek.DVD")
@@ -359,26 +355,26 @@ namespace Bibliotheek
 
                 if (dvd.DVDType.ToString() == "AMOVIE")
                 {
-                    diff = diff - DVD_A_COST_LOAN_PERIOD;
-                    if (diff > 0)
+                    daysDifference = daysDifference - DVD_A_COST_LOAN_PERIOD;
+                    if (daysDifference > 0)
                     {
-                        fine = 2 * diff;
-                    }
-                    else
-                    {
-                        fine = 0;
+                        fine = FINE_DVD_A * daysDifference;
                     }
                 }
                 if (dvd.DVDType.ToString() == "BMOVIE")
                 {
-                    diff = diff - DVD_B_COST_LOAN_PERIOD;
-                    if (diff > 0)
+                    if(daysDifference < 4)
                     {
-                        fine = 1 * diff;
+                        fine = daysDifference * FINE_DVD_A;
                     }
                     else
                     {
-                        fine = 0;
+                        fine = 3 * FINE_DVD_A;
+                    }
+                    daysDifference = daysDifference - DVD_B_COST_LOAN_PERIOD;
+                    if (daysDifference > 0)
+                    {
+                        fine = FINE_DVD_B * daysDifference;
                     }
                 }
             }
@@ -399,7 +395,10 @@ namespace Bibliotheek
                 article.LoanStatus = false;
                 TimeSpan duration = article.LoanDate - DateTime.Now;
                 int days = 0;
-                days = Convert.ToInt32(daysPassed.Text);
+                if (daysPassed.Text != "")
+                {
+                    days = Convert.ToInt32(daysPassed.Text);
+                }
                 int time = Convert.ToInt32(duration.TotalDays + days);
                 article.LoanedPeriod = article.LoanedPeriod + time;
                 article.LoanMember = -1;
@@ -435,7 +434,8 @@ namespace Bibliotheek
             else
             {
                 article.ReservationsList.Add(memberID, DateTime.Now);
-                MessageBox.Show("Gereserveerd");
+                MessageBox.Show("Article reserved. Costs: €0.30");
+                income.totaalReserveringKosten = income.totaalReserveringKosten + 0.30F;
             }
         }
 
@@ -768,6 +768,19 @@ namespace Bibliotheek
             {
                 MessageBox.Show("Choose an article and a member");
             }
+        }
+
+        /// <summary>
+        /// method for the total income button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("total reserve costs: " + income.totaalReserveringKosten + "\n" +
+                            "total fines: " + income.totaalBoeteKosten + "\n" +
+                            "total income from CDs: " + income.totaalCdInkomsten + "\n" +
+                            "toal income from DVDs: " + income.totaalDvdInkomsten + "\n");
         }
     }
 }

@@ -17,8 +17,6 @@ namespace Bibliotheek
 
     class DVD : Article
     {
-        // constant variables
-        public const float LOAN_COSTS_DVD = 0.00F;
         // Current object type of dvd
         public DVDType DVDType { get; private set; }
 
