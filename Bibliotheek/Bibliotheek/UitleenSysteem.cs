@@ -259,7 +259,7 @@ namespace Bibliotheek
 
                 if(book.BookType.ToString() == "STUDY")
                 {
-                    diff = diff - 21;
+                    diff = diff - 30;
                     if (diff > 0)
                     {
                         fine = 1 * diff;
@@ -276,10 +276,10 @@ namespace Bibliotheek
                 var cd = (getArticle(lbList.SelectedItem.ToString()) as CD);
                 if (cd.CDType.ToString() == "POP")
                 {
-                    diff = diff - 21;
+                    diff = diff - 10;
                     if (diff > 0)
                     {
-                        fine = 2 * diff;
+                        fine = 1.50 * diff;
                     }
                     else
                     {
@@ -289,10 +289,10 @@ namespace Bibliotheek
 
                 if (cd.CDType.ToString() == "CLASSIC")
                 {
-                    diff = diff - 21;
+                    diff = diff - 10;
                     if (diff > 0)
                     {
-                        fine = 1.50 * diff;
+                        fine = 2 * diff;
                     }
                     else
                     {
@@ -306,10 +306,10 @@ namespace Bibliotheek
 
                 if (dvd.DVDType.ToString() == "AMOVIE")
                 {
-                    diff = diff - 21;
+                    diff = diff - 0;
                     if (diff > 0)
                     {
-                        fine = 1 * diff;
+                        fine = 2 * diff;
                     }
                     else
                     {
@@ -318,7 +318,7 @@ namespace Bibliotheek
                 }
                 if (dvd.DVDType.ToString() == "BMOVIE")
                 {
-                    diff = diff - 21;
+                    diff = diff - 3;
                     if (diff > 0)
                     {
                         fine = 1 * diff;
