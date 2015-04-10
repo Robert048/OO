@@ -335,7 +335,6 @@ namespace Bibliotheek
                     {
                         fine = fine + FINE_POP * daysDifference;
                     }
-                    income.totaalCdInkomsten = income.totaalCdInkomsten + fine;
                 }
 
                 if (cd.CDType.ToString() == "CLASSIC")
@@ -346,8 +345,16 @@ namespace Bibliotheek
                     {
                         fine = fine + FINE_CLASSIC * daysDifference;
                     }
-                    income.totaalCdInkomsten = income.totaalCdInkomsten + fine;
                 }
+                if (cd.CdAge <= 5)
+                {
+                    fine = fine * 0.90F;
+                }
+                if (cd.CdAge > 5)
+                {
+                    fine = fine * 0.50F;
+                }
+                income.totaalCdInkomsten = income.totaalCdInkomsten + fine;
             }
             else if (className == "Bibliotheek.DVD")
             {
@@ -374,7 +381,7 @@ namespace Bibliotheek
                     daysDifference = daysDifference - DVD_B_COST_LOAN_PERIOD;
                     if (daysDifference > 0)
                     {
-                        fine = FINE_DVD_B * daysDifference;
+                        fine = fine + FINE_DVD_B * daysDifference;
                     }
                 }
             }
@@ -777,10 +784,10 @@ namespace Bibliotheek
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("total reserve costs: " + income.totaalReserveringKosten + "\n" +
-                            "total fines: " + income.totaalBoeteKosten + "\n" +
-                            "total income from CDs: " + income.totaalCdInkomsten + "\n" +
-                            "toal income from DVDs: " + income.totaalDvdInkomsten + "\n");
+            MessageBox.Show("total reserve costs:               €" + income.totaalReserveringKosten + "\n" +
+                            "total fines:                             €" + income.totaalBoeteKosten + "\n" +
+                            "total income from CDs:      €" + income.totaalCdInkomsten + "\n" +
+                            "toal income from DVDs:     €" + income.totaalDvdInkomsten + "\n");
         }
     }
 }
