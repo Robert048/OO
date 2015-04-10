@@ -19,6 +19,18 @@ namespace Bibliotheek
         //Constants
         public const int NOTPICKEDUPFINE = 2;
         public const int EXPIREDRESERVATION = 7;
+        public const int BOOK_ROMAN_COSTFREE_LOAN_PERIOD = 21; // in days, roman books
+        public const int BOOK_STUDY_COSTFREE_LOAN_PERIOD = 30; // in days, study books
+        public const int CD_COST_LOAN_PERIOD = 10; // in days, cds
+        public const int DVD_A_COST_LOAN_PERIOD = 0; // in days, a movie dvds
+        public const int DVD_B_COST_LOAN_PERIOD = 3; // in days, b movie dvds
+        public const float LOAN_COSTS_BOOK = 0.00F; // in euro, books
+        public const float LOAN_COSTS_CD_CLASSIC = 2.00F; //in euro, classic cd's
+        public const float LOAN_COSTS_CD_POP = 1.00F; //in euro, popular cd's
+        public const float LOAN_COSTS_DVD = 2.00F; //in euro, dvd's
+
+
+
 
         /// <summary>
         /// constructor
@@ -287,10 +299,10 @@ namespace Bibliotheek
                 var book = (getArticle(lbList.SelectedItem.ToString()) as Book);
                 if(book.BookType.ToString() == "ROMAN")
                 {
-                    diff = diff - 21;
+                    diff = diff - BOOK_ROMAN_COSTFREE_LOAN_PERIOD;
                     if (diff > 0)
                     {
-                        fine = 0.25 * diff;
+                        fine = 0.25 * diff + LOAN_COSTS_BOOK;
                     }
                     else
                     {
@@ -300,10 +312,10 @@ namespace Bibliotheek
 
                 if(book.BookType.ToString() == "STUDY")
                 {
-                    diff = diff - 30;
+                    diff = diff - BOOK_STUDY_COSTFREE_LOAN_PERIOD;
                     if (diff > 0)
                     {
-                        fine = 1 * diff;
+                        fine = 1 * diff + LOAN_COSTS_BOOK;
                     }
                     else
                     {
@@ -317,7 +329,7 @@ namespace Bibliotheek
                 var cd = (getArticle(lbList.SelectedItem.ToString()) as CD);
                 if (cd.CDType.ToString() == "POP")
                 {
-                    diff = diff - 10;
+                    diff = diff - CD_COST_LOAN_PERIOD;
                     if (diff > 0)
                     {
                         fine = 1.50 * diff;
@@ -330,7 +342,7 @@ namespace Bibliotheek
 
                 if (cd.CDType.ToString() == "CLASSIC")
                 {
-                    diff = diff - 10;
+                    diff = diff - CD_COST_LOAN_PERIOD;
                     if (diff > 0)
                     {
                         fine = 2 * diff;
@@ -347,7 +359,7 @@ namespace Bibliotheek
 
                 if (dvd.DVDType.ToString() == "AMOVIE")
                 {
-                    diff = diff - 0;
+                    diff = diff - DVD_A_COST_LOAN_PERIOD;
                     if (diff > 0)
                     {
                         fine = 2 * diff;
@@ -359,7 +371,7 @@ namespace Bibliotheek
                 }
                 if (dvd.DVDType.ToString() == "BMOVIE")
                 {
-                    diff = diff - 3;
+                    diff = diff - DVD_B_COST_LOAN_PERIOD;
                     if (diff > 0)
                     {
                         fine = 1 * diff;
