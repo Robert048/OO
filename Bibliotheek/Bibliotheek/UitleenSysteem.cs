@@ -63,10 +63,9 @@ namespace Bibliotheek
         /// <param name="type"></param>
         /// <param name="articleID"></param>
         /// <param name="title"></param>
-        private void addArticle(string articleType, string type, int articleID, string title)
+        private void addArticle(string articleType, string type, int articleID, string title, int cdAge)
         {
-            //TODO age of CD
-            int age = 0;
+            int age = cdAge;
             if(articleType == "Book")
             {
                 if (type == "Roman")
@@ -129,18 +128,32 @@ namespace Bibliotheek
             try
             {
                 int id = Convert.ToInt32(txtEditArticleID.Text);
-                addArticle(cbEditArticleType.SelectedItem.ToString(), cbEditType.SelectedItem.ToString(), id, txtEditArticleTitle.Text);
-                Article delete = getArticle(lbList.SelectedItem.ToString());
-                articles.Remove(delete);
-                lbList.Items.Remove(delete);
-                refreshList();
-                txtEditArticleID.Text = "";
-                txtEditArticleTitle.Text = "";
-                groupBox4.Visible = false;
+                int age = 0;
+                if (txtEditCdAge.Text != "")
+                {
+                    age = Convert.ToInt32(txtEditCdAge.Text);
+                }
+
+                if (cbEditArticleType.Text == "CD" && age == 0)
+                {
+                    MessageBox.Show("Fill in CD age");
+                }
+
+                else
+                {
+                    addArticle(cbEditArticleType.SelectedItem.ToString(), cbEditType.SelectedItem.ToString(), id, txtEditArticleTitle.Text, age);
+                    Article delete = getArticle(lbList.SelectedItem.ToString());
+                    articles.Remove(delete);
+                    lbList.Items.Remove(delete);
+                    refreshList();
+                    txtEditArticleID.Text = "";
+                    txtEditArticleTitle.Text = "";
+                    groupBox4.Visible = false;
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Geen geldig ID en anders screw you");
+                MessageBox.Show("Geen geldige gegevens");
             }
         }
 
@@ -341,7 +354,7 @@ namespace Bibliotheek
             {
                 article.LoanStatus = false;
                 TimeSpan duration = article.LoanDate - DateTime.Now;
-                int time = Convert.ToInt32(duration.TotalDays + 54);
+                int time = Convert.ToInt32(duration.TotalDays + Convert.ToInt32(daysPassed.Text));
                 article.LoanedPeriod = article.LoanedPeriod + time;
                 article.LoanMember = -1;
                 member.numberOfArticles--;
@@ -388,15 +401,21 @@ namespace Bibliotheek
         private void cbChange(object sender, EventArgs e)
         {
             cbType.Items.Clear();
+            label15.Visible = false;
+            txtCdAge.Visible = false;
+
             if(cbArticleType.SelectedItem.ToString() == "Book")
             {
                 cbType.Items.Add("Roman");
                 cbType.Items.Add("Study");
+                
             }
             else if (cbArticleType.SelectedItem.ToString() == "CD")
             {
                 cbType.Items.Add("Classic");
                 cbType.Items.Add("Pop");
+                label15.Visible = true;
+                txtCdAge.Visible = true;
             }
             else if (cbArticleType.SelectedItem.ToString() == "DVD")
             {
@@ -420,10 +439,32 @@ namespace Bibliotheek
             try
             {
                 int id = Convert.ToInt32(txtArticleID.Text);
-                addArticle(cbArticleType.SelectedItem.ToString(), cbType.SelectedItem.ToString(), id, txtArticleTitle.Text);
-                refreshList();
-                txtArticleID.Text = "";
-                txtArticleTitle.Text = "";
+                int age = 0;
+                
+                if (txtCdAge.Text != "")
+                {
+                    age = Convert.ToInt32(txtCdAge.Text);
+                }
+
+                if (cbArticleType.Text == "CD" && age == 0)
+                {
+                    MessageBox.Show("Fill in CD age");
+                }
+                else
+                {
+                    addArticle(cbArticleType.SelectedItem.ToString(), cbType.SelectedItem.ToString(), id, txtArticleTitle.Text, age);
+                    refreshList();
+                    txtArticleID.Text = "";
+                    txtArticleTitle.Text = "";
+                    txtCdAge.Text = "";
+                    label15.Visible = false;
+                    txtCdAge.Visible = false;
+                    if (cbArticleType.Text == "CD")
+                    {
+                        label15.Visible = true;
+                        txtCdAge.Visible = true;
+                    }
+                }
             }
             catch(FormatException)
             {
@@ -480,6 +521,12 @@ namespace Bibliotheek
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (lbList.SelectedItem == null)
+            {
+                MessageBox.Show("No item selected");
+            }
+            else
+            {
             groupBox4.Visible = true;
             var classEdit = getArticle(lbList.SelectedItem.ToString());
             string className = classEdit.GetType().ToString();
@@ -498,6 +545,7 @@ namespace Bibliotheek
                 cbEditType.Text = edit.CDType.ToString();
                 txtEditArticleID.Text = edit.ArticleID.ToString();
                 txtEditArticleTitle.Text = edit.Title.ToString();
+                txtEditCdAge.Text = edit.CdAge.ToString();
             }
             else if (className == "Bibliotheek.DVD")
             {
@@ -511,7 +559,7 @@ namespace Bibliotheek
             {
                 MessageBox.Show("Wrong article type");
             }
-
+            }
         }
 
         private void btnEditArticle_Click(object sender, EventArgs e)
@@ -522,21 +570,29 @@ namespace Bibliotheek
         private void cbEditChange(object sender, EventArgs e)
         {
             cbEditType.Items.Clear();
+            label16.Visible = false;
+            txtEditCdAge.Visible = false;
+
             if (cbEditArticleType.SelectedItem.ToString() == "Book")
             {
                 cbEditType.Items.Add("Roman");
                 cbEditType.Items.Add("Study");
+                txtEditCdAge.Text = "";
             }
             else if (cbEditArticleType.SelectedItem.ToString() == "CD")
             {
                 cbEditType.Items.Add("Classic");
                 cbEditType.Items.Add("Pop");
+                label16.Visible = true;
+                txtEditCdAge.Visible = true;
             }
             else if (cbEditArticleType.SelectedItem.ToString() == "DVD")
             {
                 cbEditType.Items.Add("AMovie");
                 cbEditType.Items.Add("BMovie");
+                txtEditCdAge.Text = "";
             }
+            cbEditType.SelectedIndex = 0;
         }
 
 
@@ -547,13 +603,20 @@ namespace Bibliotheek
 
         private void btnMemberEdit_Click(object sender, EventArgs e)
         {
-            groupBox5.Visible = true;
-            var memEdit = getMember(memList.SelectedItem.ToString());
-            string memName = memEdit.GetType().ToString();
-            txtEditMemberID.Text = memEdit.memberId.ToString();
-            txtEditMemberName.Text = memEdit.memberName;
-            txtEditMemberAdres.Text = memEdit.memberAdress;
-            txtEditMemberEmail.Text = memEdit.memberEmail;
+            if (memList.SelectedItem == null)
+            {
+                MessageBox.Show("No item selected.");
+            }
+            else
+            {
+                groupBox5.Visible = true;
+                var memEdit = getMember(memList.SelectedItem.ToString());
+                string memName = memEdit.GetType().ToString();
+                txtEditMemberID.Text = memEdit.memberId.ToString();
+                txtEditMemberName.Text = memEdit.memberName;
+                txtEditMemberAdres.Text = memEdit.memberAdress;
+                txtEditMemberEmail.Text = memEdit.memberEmail;
+            }
         }
 
         private void btnEditMember_Click(object sender, EventArgs e)
