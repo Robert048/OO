@@ -123,22 +123,25 @@ namespace Bibliotheek
             }
         }
 
+        /// <summary>
+        /// method to change an article
+        /// </summary>
         private void changeArticle()
         {
             try
             {
                 int id = Convert.ToInt32(txtEditArticleID.Text);
                 int age = 0;
+                //check for cd age
                 if (txtEditCdAge.Text != "")
                 {
                     age = Convert.ToInt32(txtEditCdAge.Text);
                 }
-
+                //check if type is a cd and age not filled in
                 if (cbEditArticleType.Text == "CD" && age == 0)
                 {
                     MessageBox.Show("Fill in CD age");
                 }
-
                 else
                 {
                     addArticle(cbEditArticleType.SelectedItem.ToString(), cbEditType.SelectedItem.ToString(), id, txtEditArticleTitle.Text, age);
@@ -153,10 +156,13 @@ namespace Bibliotheek
             }
             catch (Exception)
             {
-                MessageBox.Show("Geen geldige gegevens");
+                MessageBox.Show("Invalid values");
             }
         }
 
+        /// <summary>
+        /// method for deleting an article
+        /// </summary>
         private void deleteArticle()
         {
             Article delete = getArticle(lbList.SelectedItem.ToString());
@@ -165,6 +171,11 @@ namespace Bibliotheek
             refreshList();
         }
 
+        /// <summary>
+        /// method to get a members information
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         private Member getMember(string name)
         {
             Member member = members.Find( x => x.memberName.Contains(name));
@@ -185,6 +196,9 @@ namespace Bibliotheek
             members.Add(newMember);
         }
 
+        /// <summary>
+        /// method to change a member
+        /// </summary>
         private void changeMember()
         {
             try
@@ -207,10 +221,13 @@ namespace Bibliotheek
             
             catch(Exception)
             {
-                MessageBox.Show("You fucked up");
+                MessageBox.Show("Invalid values");
             }
         }
 
+        /// <summary>
+        /// method for deleting a member
+        /// </summary>
         private void deleteMember()
         {
             Member delete = getMember(memList.SelectedItem.ToString());
@@ -220,6 +237,11 @@ namespace Bibliotheek
 
         }
 
+        /// <summary>
+        /// method to loan an article as a member
+        /// </summary>
+        /// <param name="memberID"></param>
+        /// <param name="articleID"></param>
         private void loan(int memberID, int articleID)
         {
             Article article = articles.Find(x => x.ArticleID == articleID);
@@ -245,6 +267,12 @@ namespace Bibliotheek
             }
         }
 
+        /// <summary>
+        /// method to check the fine if the article is returned
+        /// </summary>
+        /// <param name="diff"></param>
+        /// <param name="articleID"></param>
+        /// <returns></returns>
         public double checkFine(int diff, int articleID)
         {
             Article article = articles.Find(x => x.ArticleID == articleID);
@@ -342,10 +370,14 @@ namespace Bibliotheek
                     }
                 }
             }
-
             return fine;
         }
 
+        /// <summary>
+        /// Method to return an article
+        /// </summary>
+        /// <param name="memberID"></param>
+        /// <param name="articleID"></param>
         private void returnArticle(int memberID, int articleID)
         {
             Article article = articles.Find(x => x.ArticleID == articleID);
@@ -354,7 +386,9 @@ namespace Bibliotheek
             {
                 article.LoanStatus = false;
                 TimeSpan duration = article.LoanDate - DateTime.Now;
-                int time = Convert.ToInt32(duration.TotalDays + Convert.ToInt32(daysPassed.Text));
+                int days = 0;
+                days = Convert.ToInt32(daysPassed.Text);
+                int time = Convert.ToInt32(duration.TotalDays + days);
                 article.LoanedPeriod = article.LoanedPeriod + time;
                 article.LoanMember = -1;
                 member.numberOfArticles--;
@@ -496,11 +530,19 @@ namespace Bibliotheek
             }
         }
 
+        /// <summary>
+        /// method for the delete button of an article
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             deleteArticle();
         }
 
+        /// <summary>
+        /// method to refresh the articles listbox
+        /// </summary>
         private void refreshList()
         {
             lbList.Items.Clear();
@@ -510,6 +552,9 @@ namespace Bibliotheek
             }
         }
 
+        /// <summary>
+        /// method to refresh the members listbox
+        /// </summary>
         private void refreshMemList()
         {
             memList.Items.Clear();
@@ -519,6 +564,11 @@ namespace Bibliotheek
             }
         }
 
+        /// <summary>
+        /// method for the articles edit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lbList.SelectedItem == null)
@@ -527,46 +577,56 @@ namespace Bibliotheek
             }
             else
             {
-            groupBox4.Visible = true;
-            var classEdit = getArticle(lbList.SelectedItem.ToString());
-            string className = classEdit.GetType().ToString();
-            if (className == "Bibliotheek.Book")
-            {
-                var edit = (getArticle(lbList.SelectedItem.ToString()) as Book);
-                cbEditArticleType.Text = "Book";
-                cbEditType.Text = edit.BookType.ToString();
-                txtEditArticleID.Text = edit.ArticleID.ToString();
-                txtEditArticleTitle.Text = edit.Title.ToString();
-            }
-            else if(className == "Bibliotheek.CD")
-            {
-                var edit = (getArticle(lbList.SelectedItem.ToString()) as CD);
-                cbEditArticleType.Text = "CD";
-                cbEditType.Text = edit.CDType.ToString();
-                txtEditArticleID.Text = edit.ArticleID.ToString();
-                txtEditArticleTitle.Text = edit.Title.ToString();
-                txtEditCdAge.Text = edit.CdAge.ToString();
-            }
-            else if (className == "Bibliotheek.DVD")
-            {
-                var edit = (getArticle(lbList.SelectedItem.ToString()) as DVD);
-                cbEditArticleType.Text = "DVD";
-                cbEditType.Text = edit.DVDType.ToString();
-                txtEditArticleID.Text = edit.ArticleID.ToString();
-                txtEditArticleTitle.Text = edit.Title.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Wrong article type");
-            }
+                groupBox4.Visible = true;
+                var classEdit = getArticle(lbList.SelectedItem.ToString());
+                string className = classEdit.GetType().ToString();
+                if (className == "Bibliotheek.Book")
+                {
+                    var edit = (getArticle(lbList.SelectedItem.ToString()) as Book);
+                    cbEditArticleType.Text = "Book";
+                    cbEditType.Text = edit.BookType.ToString();
+                    txtEditArticleID.Text = edit.ArticleID.ToString();
+                    txtEditArticleTitle.Text = edit.Title.ToString();
+                }
+                else if (className == "Bibliotheek.CD")
+                {
+                    var edit = (getArticle(lbList.SelectedItem.ToString()) as CD);
+                    cbEditArticleType.Text = "CD";
+                    cbEditType.Text = edit.CDType.ToString();
+                    txtEditArticleID.Text = edit.ArticleID.ToString();
+                    txtEditArticleTitle.Text = edit.Title.ToString();
+                    txtEditCdAge.Text = edit.CdAge.ToString();
+                }
+                else if (className == "Bibliotheek.DVD")
+                {
+                    var edit = (getArticle(lbList.SelectedItem.ToString()) as DVD);
+                    cbEditArticleType.Text = "DVD";
+                    cbEditType.Text = edit.DVDType.ToString();
+                    txtEditArticleID.Text = edit.ArticleID.ToString();
+                    txtEditArticleTitle.Text = edit.Title.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong article type");
+                }
             }
         }
 
+        /// <summary>
+        /// method for the article edit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditArticle_Click(object sender, EventArgs e)
         {
             changeArticle();
         }
 
+        /// <summary>
+        /// method for a change in the combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbEditChange(object sender, EventArgs e)
         {
             cbEditType.Items.Clear();
@@ -595,12 +655,21 @@ namespace Bibliotheek
             cbEditType.SelectedIndex = 0;
         }
 
-
+        /// <summary>
+        /// method for the member delete button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMemberDelete_Click(object sender, EventArgs e)
         {
             deleteMember();
         }
 
+        /// <summary>
+        /// mmethod for the member edit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMemberEdit_Click(object sender, EventArgs e)
         {
             if (memList.SelectedItem == null)
@@ -619,11 +688,21 @@ namespace Bibliotheek
             }
         }
 
+        /// <summary>
+        /// method for the button to save the edited member
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditMember_Click(object sender, EventArgs e)
         {
             changeMember();
         }
 
+        /// <summary>
+        /// method for the reserve button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReserve_Click(object sender, EventArgs e)
         {
             try
@@ -635,24 +714,48 @@ namespace Bibliotheek
             }
             catch(Exception)
             {
-                MessageBox.Show("gaga");
+                MessageBox.Show("Choose an article and a member");
             }
         }
 
+        /// <summary>
+        /// method for the loan button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoan_Click(object sender, EventArgs e)
         {
-            Member memberId = getMember(memList.SelectedItem.ToString());
-            Article articleId = getArticle(lbList.SelectedItem.ToString());
+            try
+            {
+                Member memberId = getMember(memList.SelectedItem.ToString());
+                Article articleId = getArticle(lbList.SelectedItem.ToString());
 
-            loan(memberId.memberId, articleId.ArticleID);
+                loan(memberId.memberId, articleId.ArticleID);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Choose an article and a member");
+            }
         }
 
+        /// <summary>
+        /// method for the return button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Member memberId = getMember(memList.SelectedItem.ToString());
-            Article articleId = getArticle(lbList.SelectedItem.ToString());
+            try
+            {
+                Member memberId = getMember(memList.SelectedItem.ToString());
+                Article articleId = getArticle(lbList.SelectedItem.ToString());
 
-            returnArticle(memberId.memberId, articleId.ArticleID);
+                returnArticle(memberId.memberId, articleId.ArticleID);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Choose an article and a member");
+            }
         }
     }
 }
